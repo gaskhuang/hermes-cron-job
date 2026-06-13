@@ -178,7 +178,7 @@ command -v opencli >/dev/null 2>&1 && opencli doctor
 若 opencli doctor 顯示 daemon + extension connected → 使用 line-opencli-all skill 提取。不需要 CDP。
 
 ### 3. LINE@ 提取
-- 確認 chat.line.biz 頁面已登入
+- 確認 【LINE後台網址】 頁面已登入
 - 使用 in-page fetch() 帶 browser cookies
 - 聊天列表：/api/v2/bots/{BOT}/chats?folderType=ALL&limit=25，用 next 分頁
   - 回傳陣列在 .list，不是 .chats
@@ -365,11 +365,11 @@ opencli browser linebiz state
 ### 4. 進聊天頁面
 直接用 bot ID URL：
 ```bash
-opencli browser linebiz open https://chat.line.biz/【你的LINE-BOT-ID】
+opencli browser linebiz open https://【LINE後台網址】/【你的LINE-BOT-ID】
 opencli browser linebiz wait time 5
 opencli browser linebiz state
 ```
-⚠️ 不建議用 https://chat.line.biz/account/【你的LINE帳號ID】 做導航捷徑——該 URL 可能被 LINE 平台導向其他已登入 bot。
+⚠️ 不建議用 https://【LINE後台網址】/account/【你的LINE帳號ID】 做導航捷徑——該 URL 可能被 LINE 平台導向其他已登入 bot。
 
 ### 4a. OAuth 登入（session 過期時）— 需 2 次點擊
 
@@ -403,12 +403,12 @@ opencli browser linebiz click 1
 sleep 8
 opencli browser linebiz state | head -3
 ```
-→ 應導回 chat.line.biz ✅
+→ 應導回 【LINE後台網址】 ✅
 
 ### 6. API 提取聊天資料（進階）
 
 #### 6a. 取得 bot ID
-從 URL 取得：https://chat.line.biz/【你的LINE-BOT-ID】
+從 URL 取得：https://【LINE後台網址】/【你的LINE-BOT-ID】
 → bot ID = 【你的LINE-BOT-ID】
 
 #### 6b. 取得聊天列表（API）
@@ -484,7 +484,7 @@ import json, urllib.request, websocket
 
 resp = urllib.request.urlopen('http://localhost:9228/json')
 pages = json.loads(resp.read())
-line_page = [p for p in pages if 'chat.line.biz/【你的LINE-BOT-ID前綴】' in p.get('url','')]
+line_page = [p for p in pages if '【LINE後台網址】/【你的LINE-BOT-ID前綴】' in p.get('url','')]
 page = line_page[0]
 ws = websocket.create_connection(page['webSocketDebuggerUrl'], timeout=10)
 
@@ -492,7 +492,7 @@ cmd = json.dumps({
     'id': 1,
     'method': 'Runtime.evaluate',
     'params': {
-        'expression': 'fetch("https://chat.line.biz/api/v2/bots/【你的LINE-BOT-ID】/chats?folderType=ALL&limit=25&prioritizePinnedChat=true").then(r=>r.json()).then(j=>({total:j.list.length,unread:j.list.filter(c=>!c.read).length,undone:j.list.filter(c=>!c.done).length,unfollowed:j.list.filter(c=>!c.followedUp).length})).then(d=>JSON.stringify(d))',
+        'expression': 'fetch("https://【LINE後台網址】/api/v2/bots/【你的LINE-BOT-ID】/chats?folderType=ALL&limit=25&prioritizePinnedChat=true").then(r=>r.json()).then(j=>({total:j.list.length,unread:j.list.filter(c=>!c.read).length,undone:j.list.filter(c=>!c.done).length,unfollowed:j.list.filter(c=>!c.followedUp).length})).then(d=>JSON.stringify(d))',
         'returnByValue': True,
         'awaitPromise': True
     }
@@ -533,7 +533,7 @@ python3 -c "import json; ..."  # 從檔案讀取
 - 若 opencli browser eval 回傳空/exit 1，不代表執行失敗 — 檢查 window.__lineReport 是否存在
 - 複雜 JS 注入優先使用 base64 編碼：SCRIPT_B64=$(base64 < script.js); opencli browser linebiz eval "$(echo "$SCRIPT_B64" | base64 -d)"
 - 變數名稱跨 eval 持續存在：同頁面 context 下第二次宣告 const bot=... 會出 SyntaxError。使用唯一名稱或重新載入頁面
-- base64 注入時 fetch() 需用絕對 URL：inline 單行可用相對路徑，但 base64 解碼後的多行 async 腳本中相對 URL 會拋出 Failed to parse URL。一律用 const BASE='https://chat.line.biz'; fetch(BASE+'/api/...')
+- base64 注入時 fetch() 需用絕對 URL：inline 單行可用相對路徑，但 base64 解碼後的多行 async 腳本中相對 URL 會拋出 Failed to parse URL。一律用 const BASE='https://【LINE後台網址】'; fetch(BASE+'/api/...')
 - 從 window.__lineReport 擷取大 JSON：opencli browser linebiz eval "window.__lineReport" > /tmp/file.json
 - 不讀、不傳、不外洩 LINE 對話中的敏感客戶資料
         </pre>
@@ -1325,11 +1325,11 @@ ffmpeg -y -i "/tmp/hermes/x-radar-podcast-raw-${REPORT_DATE}.wav" -filter:a "ate
 Return the PDF slides and 1.2x MP3 podcast to the user.
 
 **⚠️ 已知問題：cron delivery 的 MEDIA: 行常漏掉 PDF。不能只靠 final response。**
-在 final response 之前，先用 send_message tool 明確送檔案到指定目標群組（預設 telegram:-4952435033）：
+在 final response 之前，先用 send_message tool 明確送檔案到指定目標群組（預設 telegram:【你的TG群組ID】）：
 ```
-send_message(target="telegram:-4952435033", message="📊 X 雷達簡報\nMEDIA:/tmp/hermes/x-radar-slides-${REPORT_DATE}.pdf")
-send_message(target="telegram:-4952435033", message="🎙️ X 雷達 Podcast（1.2x）\nMEDIA:/tmp/hermes/x-radar-podcast-${REPORT_DATE}-1.2x.mp3")
-send_message(target="telegram:-4952435033", message="📈 X 雷達資訊圖表\nMEDIA:/tmp/hermes/x-radar-infographic-${REPORT_DATE}.png")
+send_message(target="telegram:【你的TG群組ID】", message="📊 X 雷達簡報\nMEDIA:/tmp/hermes/x-radar-slides-${REPORT_DATE}.pdf")
+send_message(target="telegram:【你的TG群組ID】", message="🎙️ X 雷達 Podcast（1.2x）\nMEDIA:/tmp/hermes/x-radar-podcast-${REPORT_DATE}-1.2x.mp3")
+send_message(target="telegram:【你的TG群組ID】", message="📈 X 雷達資訊圖表\nMEDIA:/tmp/hermes/x-radar-infographic-${REPORT_DATE}.png")
 ```
 
 ## Pitfalls
@@ -1836,9 +1836,9 @@ REPORT_STAMP=$(date +%Y-%m-%d-%H%M)
 See references/community-radar-notebooklm-workflow.md for complete adapted workflow.
 
 ## Telegram delivery routing
-- Unified radar report and downstream NotebookLM artifacts belong in Telegram「情報」only: telegram:-4952435033
+- Unified radar report and downstream NotebookLM artifacts belong in Telegram「情報群組」only: telegram:【你的TG群組ID】
 - Do not paste full radar report, PDF, or podcast into current/origin chat when user triggers manual rerun from another group
-- After manual trigger from non-情報 group, send/deliver artifacts to telegram:-4952435033, then reply in current chat with only short status line
+- After manual trigger from non-情報 group, send/deliver artifacts to telegram:【你的TG群組ID】, then reply in current chat with only short status line
 
 Recommended downstream cron timing:
 - Unified community report: 40 7,19 * * *
@@ -1907,7 +1907,7 @@ wc -c ~/reports/hermes-openclaw-community-radar/latest.md
 ```
 3. If latest.md did not update, synthesize report manually from current source files
 4. If cron/agent may have modified same report concurrently, read/check latest.md before overwriting
-5. If user expects delivery now, send final report text to telegram:-4952435033 after local verification
+5. If user expects delivery now, send final report text to telegram:【你的TG群組ID】 after local verification
 
 ## Obsidian Vault archive
 After writing report, archive copy to Obsidian Vault for qmd indexing:
@@ -2141,7 +2141,7 @@ Use only when customer is actively discussing a concrete purchase:
 
 ## LINEBiz Session
 **重要：只能使用 OpenCLI 存取 LINEBiz（使用者 指定）。不使用 CDP。**
-Chat 頁面 URL: https://chat.line.biz/【你的LINE-BOT-ID】
+Chat 頁面 URL: https://【LINE後台網址】/【你的LINE-BOT-ID】
 
 ### Pre-flight: Verify Login State Before Batch
 ```bash
@@ -2314,7 +2314,7 @@ gog sheets get 【請貼上你的GoogleSheet-ID】 "'老客戶開發訊息'!A1:H
 當 LINE@ 找不到對應聊天室名稱時，G 欄不回寫「未回覆」，改寫「確認LINE@」作為標記，讓業務手動確認 LINE@ 名稱是否正確。
 
 ## Delivery Convention
-Cron/report output for this old-customer tracker should go to Telegram 「業務 愛馬仕」 only. Do not deliver to 「客服 愛馬仕」 or generic origin/current chats unless 使用者 explicitly asks for one-off reroute.
+Cron/report output for this old-customer tracker should go to Telegram 「業務群組」 only. Do not deliver to 「客服群組」 or generic origin/current chats unless 使用者 explicitly asks for one-off reroute.
 
 ### OpenCLI eval_js: Retry on Broken Pipe
 opencli browser linebiz eval can terminate mid-batch with [Errno 32] Broken pipe when:
@@ -2325,7 +2325,7 @@ opencli browser linebiz eval can terminate mid-batch with [Errno 32] Broken pipe
 Defense: Catch BrokenPipeError and OSError in eval_js(). On failure, wait 1s and retry once. If still broken, mark as failure and move on.
 
 ### OpenCLI Init: Navigate to Main Chat Page
-Navigate to https://chat.line.biz/ (the main chat list page), NOT https://chat.line.biz/{BOT_ID}. The specific chat page does not load the chat list DOM or API context properly. Wait 5 seconds for full JS render + API bootstrap.
+Navigate to https://【LINE後台網址】/ (the main chat list page), NOT https://【LINE後台網址】/{BOT_ID}. The specific chat page does not load the chat list DOM or API context properly. Wait 5 seconds for full JS render + API bootstrap.
 
 ### Chat List Limit: 25 → 100
 The default limit=25 in the LINE@ chat API call misses many matching customers. Increase to limit=100 for better coverage.
@@ -2444,7 +2444,7 @@ Only for rows where F-column is empty OR classification is ambiguous, fetch the 
 
 ## Verification Checklist
 - [ ] Google Sheet metadata confirms tab 老客戶開發訊息.
-- [ ] Pre-flight: opencli browser linebiz eval returns chat.line.biz URL (not login page).
+- [ ] Pre-flight: opencli browser linebiz eval returns 【LINE後台網址】 URL (not login page).
 - [ ] Row E chat name is valid and found in LINE@.
 - [ ] Last five LINE@ events are collected (OpenCLI eval, no UI click/read-state changes).
 - [ ] G status is one of 未回覆, 有興趣, 討論中.
