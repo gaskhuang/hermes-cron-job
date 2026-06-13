@@ -1,0 +1,2577 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZoneTech Skills 完整內容</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        .header {
+            background: #1e293b;
+            border-bottom: 1px solid #334155;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header h1 { font-size: 1.3rem; color: #38bdf8; }
+        .header p { color: #94a3b8; font-size: 0.85rem; }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            color: #7dd3fc;
+            text-decoration: none;
+            background: #0f4c75;
+            padding: 0.35rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+        .back-link:hover { background: #1a6b9e; }
+        .nav { 
+            display: flex; 
+            gap: 0.5rem; 
+            padding: 0.75rem 2rem; 
+            background: #0f172a;
+            border-bottom: 1px solid #334155;
+            flex-wrap: wrap;
+        }
+        .nav a {
+            color: #7dd3fc;
+            text-decoration: none;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            background: #0f4c75;
+        }
+        .nav a:hover { background: #1a6b9e; }
+        .skill-section {
+            padding: 2rem;
+            border-bottom: 2px solid #334155;
+        }
+        .skill-section h2 {
+            color: #38bdf8;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #334155;
+        }
+        .skill-section h3 {
+            color: #66d9ef;
+            font-size: 1.1rem;
+            margin: 1.5rem 0 0.5rem;
+        }
+        .skill-section pre {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .skill-section code {
+            background: #334155;
+            padding: 0.15rem 0.3rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #0f4c75;
+            color: #7dd3fc;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+        .skill-section h2 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .copy-btn {
+            margin-left: auto;
+            background: #0f4c75;
+            color: #7dd3fc;
+            border: 1px solid #1a6b9e;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .copy-btn:hover { background: #1a6b9e; color: #e0f2fe; }
+        .copy-btn.copied { background: #166534; color: #bbf7d0; border-color: #166534; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="back-link">⚡ 回到 ZoneTech CronJob Skill 總覽</a>
+        <h1>📚 ZoneTech Skills 完整內容</h1>
+        <p>以下為所有綁定 CronJob 的 Skill 完整內容（已去敏化，個人帳號 / Google 雲端 / LINE / 路徑皆以【請貼上你的…】佔位，可安全分享）</p>
+    </div>
+
+    <div class="nav">
+        <a href="#zonetech-daily-line-report">LINE@日報</a>
+        <a href="#line-opencli-all">LINE OpenCLI</a>
+        <a href="#morning-digest-podcast">晨報Podcast</a>
+        <a href="#x-radar-report">X Radar</a>
+        <a href="#agent-reach">Agent Reach</a>
+        <a href="#xreach-home-timeline-digest">X Home Digest</a>
+        <a href="#x-radar-to-notebooklm">X→NotebookLM</a>
+        <a href="#nb-s">/nb-s</a>
+        <a href="#notebooklm-py-install-and-verify">NotebookLM安裝</a>
+        <a href="#hermes-openclaw-community-radar">社群雷達</a>
+        <a href="#reddit-radar">Reddit Radar</a>
+        <a href="#zonetech-old-customer-followup-tracker">老客戶追蹤</a>
+        <a href="#memory-shipment-tracker">記憶體追蹤</a>
+    </div>
+
+    <div class="skill-section" id="zonetech-daily-line-report">
+        <h2>zonetech-daily-line-report</h2>
+        <pre>
+# ZoneTech Daily LINE Report
+
+產生 ZoneTech 每日 LINE / LINE@ 報告並發布到 GitHub Pages。
+
+## 預設值
+- 目標日期：Asia/Taipei 前一天 00:00:00–23:59:59
+- LINE@ bot id: 【你的LINE-BOT-ID】
+- GitHub repo: 【你的GitHubUser】/【你的Repo】
+- Pages base: https://【你的GitHubUser】.github.io/【你的Repo】/
+- 排程：每天 10:00 和 17:00
+
+## 工作流程
+
+### 1a. Cron 快取路徑：檢查報告是否已存在
+```bash
+TZ=Asia/Taipei HHMM=$(date '+%H%M')
+TZ=Asia/Taipei YMD=$(date '+%Y-%m-%d')
+HTTP_CODE=$(curl -s -o /dev/null -w '%{http_code}' \
+  "https://【你的GitHubUser】.github.io/【你的Repo】/web/line_official_${YMD}_${HHMM}.html")
+```
+- 200 → 驗證內容日期正確，跳過步驟 3-7
+- 404 → 正常執行
+
+### 1. 計算日期
+```bash
+TZ=Asia/Taipei date '+%Y-%m-%d %H:%M:%S %Z %z'
+```
+
+### 2. 預檢
+```bash
+command -v opencli >/dev/null 2>&1 && opencli doctor
+```
+若 opencli doctor 顯示 daemon + extension connected → 使用 line-opencli-all skill 提取。不需要 CDP。
+
+### 3. LINE@ 提取
+- 確認 chat.line.biz 頁面已登入
+- 使用 in-page fetch() 帶 browser cookies
+- 聊天列表：/api/v2/bots/{BOT}/chats?folderType=ALL&limit=25，用 next 分頁
+  - 回傳陣列在 .list，不是 .chats
+  - 顯示名稱在 c.profile.name
+- 候選聊天室訊息：/api/v3/bots/{BOT}/chats/{chatId}/messages?limit=25
+  - 事件陣列在 .list，不是 .messages；事件文字在 m.message.text
+  - 分頁 cursor 在 resp.backward（response 欄位，不是 request param）
+  - m.timestamp = 事件時間 ms；m.type === "message" = 客戶；"messageSent" = 我方
+- 只包含目標日期內有實際事件的聊天室
+
+### 3a. 預算檢查
+```bash
+CANDIDATE_COUNT=$(python3 -c "import json; d=json.load(open('/tmp/report_gen/line_chat_list.json')); print(len(d))")
+```
+- ≤20 → 完整提取；21-50 → batch 單頁；51-80 → 僅優先；>80 → metadata-only
+
+### 5. 去敏化
+- 遮罩：手機、市話、email、密碼、銀行帳號、地址（僅保留縣市）、發票 URL、內部 IP、設備識別碼
+- 掃描最終 MD+HTML 確認無敏感資訊
+- 絕不提交原始 API 回應或中間 JSON
+
+### 6. 產生報告
+報告結構：
+1. # LINE@ 官方帳號客戶訊息報告 — YYYY-MM-DD HH:MM
+2. 目標訊息範圍：昨日 00:00–目前
+3. 資料來源狀態 + GitHub Pages URL
+4. 緊急需回覆 / 高風險（最多 10 項）
+5. 依案件狀態整理（已完成, 待收款, 工程需處理, 客服/業務需回覆, 需人工確認）
+6. 依分類整理所有客戶訊息
+7. 明確待辦清單（僅公司方動作）
+8. 可信度與限制
+
+### 分類優先順序（V3）
+1. 客戶最後文字為結尾語 → 已完成/不需處理（可以了, 沒問題, 收到, 好的, 謝謝, 了解, ok, 完成了）
+2. 超過 7 天無文字 → 已完成/不需處理（除非有新請求）
+3. Done label → 已完成/不需處理
+4. 我方最後發言 → 已完成/不需處理（除非含主動承諾：我會再, 稍後回, 工程會, 我來安排）
+5. 客戶最後發言 → 依文字分類：
+   a. 緊急（斷線/當機/連不上/中毒）→ 工程需處理 / 緊急技術/客訴
+   b. 財務（付款/匯款/發票/帳款/尾款/轉帳/查收）→ 待收款 / 催款
+   c. 工程（安裝/維修/設定/施工/路由器/switch/ap/nas/防火牆/wifi）→ 工程需處理
+   d. 業務（報價/詢價/預約/規劃/採購）→ 客服/業務需回覆 / 報價/商機
+   e. 有意義但無類別（>5 字）→ 一般客服
+   f. 極短/僅附件 → 需人工確認
+
+### 7. 發布
+- 產生到 /tmp/report_gen/ → clone repo 到 /tmp/zonetech-daily-report/
+- 複製 MD → repo/reports/，HTML → repo/web/
+- 更新 index.html 和 README.md
+- commit + push
+- 輪詢 Pages 直到 HTTP 200
+
+## 關鍵坑點
+
+- macOS 安全限制：禁止 pipe-to-interpreter 模式（curl | python3）。改用 file intermediary：curl > file，再 python3 file
+- 去敏 sanitize() 必須在每個訊息文字路徑呼叫，包括 summary 欄位和 HTML 版
+- 密碼常以「密碼XXXX」無冒號格式出現，需用 r'密碼\s*[A-Za-z0-9@#$%!?]{6,}' 匹配
+- 訊息排序方向：API 回傳 newest-first，分類前需 sort((a,b)=>a.timestamp-b.timestamp)
+- toLocaleString 日期格式為 2026/6/12（斜線無前綴零），與 strftime('%Y-%m-%d') 不同，日期比較一律用 epoch ms
+        </pre>
+    </div>
+
+    <div class="skill-section" id="line-opencli-all">
+        <h2>line-opencli-all</h2>
+        <pre>
+# LINE OpenCLI 全路徑（唯一方案）
+
+## 觸發關鍵字
+LINE@ 登入不了、LINE 無法登入、登入失敗、session 過期、OAuth 登入 → 檢查 extension 狀態，依 Recovery 流程重新登入。
+
+## 適用場景
+- LINE@/LINEBiz 官方帳號（主力）：聊天記錄查詢、聊天清單抓取、客戶對話整理、未回覆查詢、回覆客戶訊息
+- 個人 LINE（Chrome Extension 備援）：傳訊息給特定聯絡人
+- LINEBiz Chrome Profile 管理：backup/restore、watchdog、CDP port 切換、auto-login recovery
+
+## 核心原則
+首選 OpenCLI，CDP 專用 Profile（port 9228）為備援。
+正常情況走 OpenCLI（extension connected）。若 OpenCLI extension 斷線，
+用 Dedicated Chrome Profile（port 9228, ~/ChromeProfiles/LineBiz/）透過 CDP WebSocket 操作。
+
+## 前置條件
+- macOS 本機
+- OpenCLI v1.8.0+ 已安裝、daemon running、extension connected
+- Chrome 已登入 LINE Business ID
+- Session name 統一用 linebiz
+
+## Recovery: Extension 斷線／Chrome 重啟復原
+
+### 0a. 確認 Chrome 行程狀態
+```bash
+ps aux | grep ChromeProfiles/LineBiz | grep -v grep
+```
+- 行程不存在 → 執行 0b 重啟 Chrome
+- 行程存在但 extension 未連 → 執行 0c 確認 daemon 狀態
+- 行程存在且 port 9228 可連 → 跳至 0d（CDP 確認分頁）
+
+### 0b. 啟動 Chrome（含 extension + debug port）
+```bash
+kill $(pgrep -f "ChromeProfiles/LineBiz") 2>/dev/null; sleep 1
+
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+  --remote-debugging-port=9228 \
+  --remote-allow-origins=* \
+  --user-data-dir=/Users/【你的帳號】/ChromeProfiles/LineBiz \
+  --profile-directory=Default \
+  --no-first-run \
+  --disable-features=ChromeWhatsNewUI \
+  --load-extension=/Users/【你的帳號】/Downloads/opencli-extension-v1.0.9 \
+  > /tmp/chrome_linebiz_log/stdout.log 2>&1 &
+sleep 4
+```
+⚠️ --remote-allow-origins=* 是 Chrome 148+ 必要參數。不加則 WebSocket 連線會收到 403 Forbidden。
+
+驗證：
+```bash
+ps aux | grep ChromeProfiles/LineBiz | grep -v grep | wc -l
+# 確認 ~10 個行程表示 Chrome 正常啟動
+
+curl -s http://localhost:9228/json/version | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('Browser','?'))"
+```
+
+⏳ Extension 初始化時間：Chrome 啟動後約需 3–5 分鐘才會完成背景初始化並連上 daemon。不要急著重啟。
+
+### 0c. 重啟 OpenCLI daemon
+```bash
+opencli daemon restart
+sleep 3
+opencli doctor
+```
+若仍失敗：
+```bash
+pkill -f "opencli.*daemon" 2>/dev/null
+sleep 2
+opencli daemon start
+sleep 3
+opencli doctor
+```
+
+### 0d. CDP 直接確認分頁
+```bash
+curl -s http://localhost:9228/json | python3 -c "
+import json, sys
+pages = json.load(sys.stdin)
+for i, p in enumerate(pages):
+    print(f'{i}: {p.get(\"title\",\"?\")[:50]} | {p.get(\"url\",\"?\")[:80]}')
+"
+```
+若無 LINE 相關分頁，開新分頁：
+```bash
+curl -s -X PUT "http://localhost:9228/json/new?https://manager.line.biz/account/【你的LINE帳號ID】"
+```
+
+### 0e. 檢查是否需 OAuth 登入
+新開分頁若跳轉到 access.line.me 或 account.line.biz/login，表示 session 失效。執行 OAuth 2 次點擊登入流程。
+
+### 0f. 區分「Extension 斷線」vs「OAuth token 過期」
+- Extension 斷線：opencli doctor 顯示 Extension: not connected → 走 0a–0c Chrome/daemon 重啟流程
+- OAuth token 過期：opencli doctor 顯示正常，但 watchdog 顯示 chat_api_not_authenticated → 不需重啟 Chrome，直接走 0e → 4a OAuth 登入
+
+## 標準操作流程
+
+### 1. 確認 bridge 健康
+```bash
+opencli doctor
+```
+Expected: Daemon running, Extension connected, Connectivity OK.
+
+### 2. 進 LINE Manager 帳號一覽
+```bash
+opencli browser linebiz open https://manager.line.biz/
+opencli browser linebiz wait time 4
+opencli browser linebiz state
+```
+確認頁面顯示「帳號一覽」列表。
+
+### 3. 選取蓋斯克科技帳號
+```bash
+opencli browser linebiz eval 'document.querySelector("a[href=\"/account/【你的LINE帳號ID】\"]").click()'
+opencli browser linebiz wait time 3
+opencli browser linebiz state
+```
+確認 URL 轉到 https://manager.line.biz/account/【你的LINE帳號ID】
+
+### 4. 進聊天頁面
+直接用 bot ID URL：
+```bash
+opencli browser linebiz open https://chat.line.biz/【你的LINE-BOT-ID】
+opencli browser linebiz wait time 5
+opencli browser linebiz state
+```
+⚠️ 不建議用 https://chat.line.biz/account/【你的LINE帳號ID】 做導航捷徑——該 URL 可能被 LINE 平台導向其他已登入 bot。
+
+### 4a. OAuth 登入（session 過期時）— 需 2 次點擊
+
+**Phase 1 — 登入頁提交「LINE 帳號」表單：**
+⚠️ account.line.biz/login 的「LINE帳號」按鈕包在 toly-button web component 內，shadow DOM 會攔截 click 事件。不要用 click 指令，改用 eval 直接提交 form：
+
+```bash
+opencli browser linebiz eval "
+(function() {
+    const forms = document.querySelectorAll('form');
+    const loginForm = Array.from(forms).find(function(f) {
+        var a = f.getAttribute('action') || '';
+        return a.includes('/login/line') && !a.includes('disableLineAutoLogin=true');
+    });
+    if (!loginForm) return 'No LINE login form found';
+    loginForm.submit();
+    return 'Form submitted';
+})()
+"
+sleep 7
+opencli browser linebiz state | head -3
+```
+
+若回傳 "Form submitted" 且 URL 跳至 access.line.me/oauth2/... → 成功 ✅
+若回傳 "No LINE login form found" → 退而用 click 1 重試
+
+**Phase 2 — OAuth consent 確認：**
+access.line.me 的「登入」按鈕是原生 button，可直接 click：
+```bash
+opencli browser linebiz click 1
+sleep 8
+opencli browser linebiz state | head -3
+```
+→ 應導回 chat.line.biz ✅
+
+### 6. API 提取聊天資料（進階）
+
+#### 6a. 取得 bot ID
+從 URL 取得：https://chat.line.biz/【你的LINE-BOT-ID】
+→ bot ID = 【你的LINE-BOT-ID】
+
+#### 6b. 取得聊天列表（API）
+```bash
+opencli browser linebiz eval "fetch('/api/v2/bots/【你的LINE-BOT-ID】/chats?folderType=ALL&tagIds=&autoTagIds=&limit=25&prioritizePinnedChat=true').then(r=>r.json()).then(j=>JSON.stringify(j).slice(0,8000))"
+```
+- limit 最高 25，設超過會空列表
+- 分頁用 &next=cursor（cursor 原始字串，非 URL）
+- 回傳欄位：chatId, profile.nickname, updatedAt, lastReceivedAt, lastSentAt, read, done, latestEvent
+
+**緊湊摘要模式：**
+```bash
+opencli browser linebiz eval "fetch('/api/v2/bots/【你的LINE-BOT-ID】/chats?folderType=ALL&tagIds=&autoTagIds=&limit=25&prioritizePinnedChat=true').then(r=>r.json()).then(j=>JSON.stringify({total: j.list.length, chats: j.list.map(function(c){return {name: c.profile.nickname, read: c.read, done: c.done, followedUp: c.followedUp, updated: new Date(c.updatedAt).toLocaleString('zh-TW',{timeZone:'Asia/Taipei'}), lastMsg: (c.latestEvent&&c.latestEvent.message&&c.latestEvent.message.text||'').slice(0,40), chatType: c.chatType}})}))"
+```
+
+#### 6d. 取得單一聊天室訊息
+```bash
+opencli browser linebiz eval "fetch('/api/v3/bots/【你的LINE-BOT-ID】/chats/{CHAT_ID}/messages?limit=25').then(r=>r.json()).then(j=>JSON.stringify(j).slice(0,8000))"
+```
+- 初始請求不用加 backward 參數
+- 往前翻頁用 ?backward=cursor
+- 事件類型：message（客戶發送）、messageSent（我方發送）
+- source.userId === BOT_ID → 我方發出
+- timestamp 為 epoch ms，需轉換 Asia/Taipei (+08:00)
+- .list 欄位為事件陣列，不是 .messages
+- 事件文字在 m.message.text，不是 m.text
+
+#### 6e. 全量提取最佳實踐
+1. 用 write_file 寫入完整 JS 腳本
+2. base64 編碼後注入 — 繞過 shell substitution 問題
+3. 批次並行 fetch — Promise.all(batchSize=5)，約 20–30 秒完成 80 個 chat
+4. 結果存 window.__xxx — 避免 eval 輸出截斷
+5. 兩段式取回 — 先驗證變數存在，再 eval "window.__xxx" > file.json
+
+#### 6i. 大量提取腳本模式（並行批次，50+ chats）
+```javascript
+let results=[];
+let batchSize=5;
+for(let i=0;i<targetChats.length;i+=batchSize){
+  let batch=targetChats.slice(i,i+batchSize);
+  let batchResults=await Promise.all(batch.map(async (c)=>{
+    // fetch chat messages
+  }));
+  results.push(...batchResults);
+}
+```
+批次大小建議：batchSize=5（預設），batchSize=3（擔心限流時），batchSize=10（30-50 chats 且 API 連線良好時）
+
+### 7. 回覆 LINE 客戶
+```bash
+opencli browser linebiz eval "fetch('/api/v2/bots/【你的LINE-BOT-ID】/chats/{CHAT_ID}/messages', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({type:'text', text:'您的回覆內容'})}).then(r=>r.json()).then(j=>JSON.stringify(j))"
+```
+⚠️ 回覆前一律先確認：顯示目標客戶名稱 + 完整訊息內容，等 使用者 說「送出」才執行。
+
+### 8. CDP WebSocket 直接 API 存取（OpenCLI extension 斷線時備援）
+
+當 opencli doctor 顯示 Extension: not connected，但 Dedicated Chrome Profile（port 9228）仍在運行時，可直接透過 CDP WebSocket 執行 JavaScript 呼叫 LINEBiz 內部 API。
+
+前置條件：Chrome 以 Dedicated Profile 啟動並綁定 debugging port：
+~/ChromeProfiles/LineBiz/ + --remote-debugging-port=9228 + --remote-allow-origins=*
+
+#### 8a. 檢查 CDP 狀態
+```bash
+curl -s http://localhost:9228/json/version | python3 -c "import sys,json; d=json.load(sys.stdin); print('Chrome:', d.get('Browser','?'))"
+```
+
+#### 8b. 透過 WebSocket 執行 JS 取得 API 資料
+需安裝 websocket-client：pip3 install websocket-client
+
+範例腳本 — 取得 LINE@ 聊天列表摘要：
+```python
+import json, urllib.request, websocket
+
+resp = urllib.request.urlopen('http://localhost:9228/json')
+pages = json.loads(resp.read())
+line_page = [p for p in pages if 'chat.line.biz/【你的LINE-BOT-ID前綴】' in p.get('url','')]
+page = line_page[0]
+ws = websocket.create_connection(page['webSocketDebuggerUrl'], timeout=10)
+
+cmd = json.dumps({
+    'id': 1,
+    'method': 'Runtime.evaluate',
+    'params': {
+        'expression': 'fetch("https://chat.line.biz/api/v2/bots/【你的LINE-BOT-ID】/chats?folderType=ALL&limit=25&prioritizePinnedChat=true").then(r=>r.json()).then(j=>({total:j.list.length,unread:j.list.filter(c=>!c.read).length,undone:j.list.filter(c=>!c.done).length,unfollowed:j.list.filter(c=>!c.followedUp).length})).then(d=>JSON.stringify(d))',
+        'returnByValue': True,
+        'awaitPromise': True
+    }
+})
+ws.send(cmd)
+resp = json.loads(ws.recv())
+ws.close()
+
+if 'result' in resp and 'result' in resp['result']:
+    print(resp['result']['result']['value'])
+```
+
+#### 8d. macOS 安全限制：pipe-to-interpreter 被攔截
+macOS（Sonoma+）的安全掃描會攔截 curl url | python3 -c "..." 的 pipe-to-interpreter 模式。
+強制解法：一律使用 file intermediary，不要用 pipe：
+```bash
+# ❌ 會失敗
+curl -s http://localhost:9228/json | python3 -c "..."
+
+# ✅ 分兩步，安全
+curl -s http://localhost:9228/json > /tmp/cdp_pages.json
+python3 -c "import json; ..."  # 從檔案讀取
+```
+
+#### 8e. 注意事項
+- Runtime.evaluate 的 params 需含 "awaitPromise": true 才能正確等待 fetch 回傳
+- expression 中的雙引號在 Python 字串中需跳脫為 \\"
+- 每次建立新 WebSocket 連線，不需擔心變數名稱衝突
+- WebSocket 連線約 80 次 Runtime.evaluate 後會斷線。大量提取（50+ chats）時，建議每 15 個 chat 重新連線一次
+- 若分頁導航（window.location 變了），WebSocket URL 可能失效，需重新取得
+
+## 注意事項
+- OpenCLI v1.8.0+ 必須加 session name：opencli browser linebiz open URL
+- 沒有 opencli browser navigate — 用 opencli browser open
+- 沒有 opencli browser snapshot — 用 opencli browser state
+- opencli browser click 不支援文字匹配 — 用 opencli browser eval 執行 document.querySelector(...).click()
+- JS 注入時若用 $(cat) 或直接 shell 字串要避免 // 註解 — shell substitution 會吃掉它造成 SyntaxError。用 /* */、minified，或改用 base64 編碼（推薦，// 安全）
+- 若 opencli browser eval 回傳空/exit 1，不代表執行失敗 — 檢查 window.__lineReport 是否存在
+- 複雜 JS 注入優先使用 base64 編碼：SCRIPT_B64=$(base64 < script.js); opencli browser linebiz eval "$(echo "$SCRIPT_B64" | base64 -d)"
+- 變數名稱跨 eval 持續存在：同頁面 context 下第二次宣告 const bot=... 會出 SyntaxError。使用唯一名稱或重新載入頁面
+- base64 注入時 fetch() 需用絕對 URL：inline 單行可用相對路徑，但 base64 解碼後的多行 async 腳本中相對 URL 會拋出 Failed to parse URL。一律用 const BASE='https://chat.line.biz'; fetch(BASE+'/api/...')
+- 從 window.__lineReport 擷取大 JSON：opencli browser linebiz eval "window.__lineReport" > /tmp/file.json
+- 不讀、不傳、不外洩 LINE 對話中的敏感客戶資料
+        </pre>
+    </div>
+
+    <div class="skill-section" id="morning-digest-podcast">
+        <h2>morning-digest-podcast</h2>
+        <pre>
+# Morning Digest Podcast（晨報轉 Podcast）
+
+合併 c42dbb539aaa + 1000573f2277，產生 NotebookLM Google Slides + 資訊圖表 + 雙 Podcast（繁體中文）。
+
+## 觸發
+- 使用者：「把晨報轉成 podcast」、「產生 podcast」、「晨報整合 podcast」
+- Cron：每天 09:00（兩個上游 job 完成後）
+
+## 來源
+- Source A: ~/.hermes/cron/output/c42dbb539aaa/ 最新 .md（08:20）
+- Source B: ~/.hermes/cron/output/1000573f2277/ 最新 .md（06:50）
+- 任一來源缺失 → 立即停止，回報，不繼續執行
+
+## 工作流程
+
+### Step 1: 讀取兩個來源
+```bash
+ls -t ~/.hermes/cron/output/c42dbb539aaa/ | head -1
+ls -t ~/.hermes/cron/output/1000573f2277/ | head -1
+```
+讀取檔案，擷取 ## Response 段落以後（跳過 cron metadata header）。
+
+### Step 2: 合併儲存 + 產生精煉文字摘要
+
+儲存至 /tmp/morning-digest-YYYY-MM-DD.txt，格式：
+```
+📋 今日晨報整合 YYYY-MM-DD
+## 第一部分：科技與財經晨報（完整內容，plain TC, no tables）
+## 第二部分：AI 開源工具焦點 — Hermes / OpenClaw（完整內容）
+## 今日關注提醒（3-5 key takeaways）
+```
+
+產出每則新聞一句話的精煉摘要，儲存至 /tmp/morning-digest-YYYY-MM-DD-condensed.txt
+
+### Step 3: 建立 notebook + 驗證 binary
+```bash
+notebooklm --version || /Users/【你的帳號】/.local/pipx/venvs/notebooklm-py/bin/notebooklm --version
+notebooklm create "晨報整合 YYYY-MM-DD"
+```
+bare 失敗時全程改用 pipx 完整路徑。
+
+### Step 4: 加入 source
+macOS /tmp 是 /private/tmp 的 symlink，notebooklm source add 預設拒絕上傳 symlink 路徑。
+解法一（推薦）：複製到 home 目錄再上傳
+```bash
+cp /tmp/morning-digest-YYYY-MM-DD.txt ~/morning-digest-YYYY-MM-DD.txt
+notebooklm source add ~/morning-digest-YYYY-MM-DD.txt \
+  --title "YYYY-MM-DD 每日晨報" --notebook <id>
+```
+解法二：傳 --follow-symlinks 標記
+```bash
+notebooklm source add /tmp/morning-digest-YYYY-MM-DD.txt \
+  --title "YYYY-MM-DD 每日晨報" --notebook <id> --follow-symlinks
+```
+⚠️ 禁用 --type text（上傳路徑字串非內容）。
+驗證：notebooklm source fulltext <source_id> --notebook <id> | head -20（需顯示數千字真實內容）
+
+### Step 5: 平行產生 4 個產物
+```bash
+notebooklm generate slide-deck --language zh_Hant --no-wait --json --notebook <id>
+notebooklm generate infographic --language zh_Hant --no-wait --json --notebook <id>
+notebooklm generate audio --format deep-dive --length long --language zh_Hant --no-wait --json --notebook <id> "深度對談，詳細討論所有主題，目標15分鐘"
+notebooklm generate audio --format deep-dive --length short --language zh_Hant --no-wait --json --notebook <id> "逐字速讀，快速朗讀所有內容，目標5分鐘"
+```
+⚠️ --format brief 只產 45-90s 摘要；5min 速讀須用 deep-dive --length short。
+
+### Step 6: 輪詢直到完成
+等待 60s 後開始，每 60-90s 輪詢一次：
+```bash
+notebooklm artifact poll <task_id> --notebook <id>
+```
+關鍵訊號：當 artifact poll 回傳 pending 狀態但同時附有 URL → 立即用 artifact list 交叉確認：
+```bash
+notebooklm artifact list --notebook <id>
+```
+若 list 顯示 completed，直接下載，不再等 poll。
+
+預計完成時間：brief 3-5min／infographic+slides 5-8min／deep-dive 8-15min。
+⚠️ 禁用 execute_code polling（cron 封鎖），改用獨立 terminal call + sleep N。
+
+### Step 7: 下載
+```bash
+notebooklm download slide-deck --artifact <id> /tmp/morning-slides-YYYY-MM-DD.pdf --force --notebook <nb>
+notebooklm download infographic --artifact <id> /tmp/morning-infographic-YYYY-MM-DD.png --force --notebook <nb>
+notebooklm download audio --artifact <id> /tmp/daily-digest-podcast-YYYY-MM-DD-deep-raw.mp3 --force --notebook <nb>
+notebooklm download audio --artifact <id> /tmp/daily-digest-podcast-YYYY-MM-DD-brief-raw.mp3 --force --notebook <nb>
+```
+⚠️ 禁用 --latest（2 個 audio artifact 時不確定）。重跑時注意 (N) 後綴。
+
+### Step 8: 加速 1.2x
+```bash
+ffmpeg -y -i /tmp/daily-digest-podcast-YYYY-MM-DD-deep-raw.mp3 -filter:a "atempo=1.2" -vn /tmp/daily-digest-podcast-YYYY-MM-DD-deep.mp3
+ffmpeg -y -i /tmp/daily-digest-podcast-YYYY-MM-DD-brief-raw.mp3 -filter:a "atempo=1.2" -vn /tmp/daily-digest-podcast-YYYY-MM-DD-brief.mp3
+```
+完成後刪除 -raw.mp3。
+
+### Step 9: 交付
+必須包含：
+1. 精煉文字摘要 — 讀取 /tmp/morning-digest-YYYY-MM-DD-condensed.txt，把全文直接貼進回應 body
+2. 4 個 MEDIA: 行：
+```
+📊 晨報簡報 MEDIA: /tmp/morning-slides-YYYY-MM-DD.pdf
+🖼️ 資訊圖表 MEDIA: /tmp/morning-infographic-YYYY-MM-DD.png
+🎙️ 深度對談（長版 1.2x） MEDIA: /tmp/daily-digest-podcast-YYYY-MM-DD-deep.mp3
+📖 逐字速讀（短版 1.2x） MEDIA: /tmp/daily-digest-podcast-YYYY-MM-DD-brief.mp3
+```
+
+### Step 10: 上傳到 Google Drive（子資料夾）
+先建立日期子資料夾，再上傳 5 個檔案（含精煉摘要 .txt）至其內：
+```bash
+SUB=$(gog -a 【你的個人Gmail】 -j drive mkdir "YYYY-MM-DD-晨報資訊" --parent=【請貼上你的GoogleDrive資料夾ID】 | jq -r '.folder.id')
+```
+GD parent folder ID: 【請貼上你的GoogleDrive資料夾ID】（hardcoded）
+上傳後每個檔案必須自動設為「任何知道連結的人都可以檢視」：
+```bash
+gog drive share <fileId> --to anyone --role reader --discoverable -y -j
+```
+
+### Step 11: Email 通知
+```bash
+gog -a 【你的個人Gmail】 -j gmail send \
+  --to 【你的公司Email】 \
+  --subject "晨報整合 YYYY-MM-DD — NotebookLM 產出" \
+  --body "...with GD links..."
+```
+
+### Step 12: Cleanup
+```bash
+notebooklm delete --notebook <id> --yes
+rm -f /tmp/*-raw.mp3 /tmp/morning-digest-YYYY-MM-DD.txt /tmp/morning-digest-YYYY-MM-DD-condensed.txt
+```
+
+## Slide-deck rate limit fallback
+RATE_LIMITED → 延遲重試，同時繼續 audio pipeline。多次失敗後：
+```bash
+/usr/bin/python3 ~/.hermes/skills/productivity/morning-digest-podcast/scripts/create_morning_slides_fallback.py \
+  YYYY-MM-DD /tmp/morning-digest-YYYY-MM-DD.txt /tmp/morning-slides-YYYY-MM-DD.pdf
+```
+⚠️ 必須用 /usr/bin/python3（系統 Python 有 Pillow JPEG；pipx venv 無）。交付文字須標示 fallback。
+
+## 安全
+- 不輸出 auth token 或 cookie
+- 來源缺失/空白 → 停止並回報
+- workflow 保持機械化，podcast prompt 不加主觀評論
+        </pre>
+    </div>
+
+    <div class="skill-section" id="x-radar-report">
+        <h2>x-radar-report</h2>
+        <pre>
+# X Radar Report — Hermes / OpenClaw 12hr Research
+
+## 觸發
+Cron jobs 或手動請求產生 X/Twitter 情報報告。
+
+## 所需 Skills
+執行前載入：agent-reach, xreach-home-timeline-digest
+
+## 工具偏好（2026-05-12 更新）
+主要：opencli twitter search — 使用已登入 Chrome profile，auth 更穩定，metadata 更豐富（views, engagement）
+備援：xreach search — cookie 可能過期或遇到 HTTP 404。只在 opencli 不可用或 auth 錯誤時使用。
+
+## 工作流程
+
+### Step 0: 預檢 auth
+```bash
+opencli doctor
+```
+Expected: Daemon running, Extension connected, at least one profile connected.
+
+### Step 1: 啟動平行搜尋（背景程序）
+
+**主要：opencli twitter search（7 個查詢）**
+
+將 q0/q1/q2/q4/q5/q6 作為獨立的 terminal(background=true) 呼叫啟動。不要使用 shell & 背景化在單一前景 terminal 區塊中 — host 可能拒絕它。q3 在其他背景 job 完成後才執行，作為 serial/split 步驟（q3_skill.json + q3_mcp.json → 合併為 q3.json），因為 Browser Bridge 實際上是單分頁/單操作，而寬泛的 q3 boolean 查詢最可能在並行 opencli twitter search 負載下逾時或中止。
+
+**q3 查詢模式（商業/變現 + skills/tools 拆分）：**
+- (Hermes OR OpenClaw) (賺錢 OR 變現 OR 商業 OR 獲利 OR automation OR business OR income)
+- (Hermes OR OpenClaw) (skill OR tool OR plugin OR 工具 OR 方法 OR 技巧)
+
+**7 查詢組合：**
+```bash
+mkdir -p /tmp/xresearch
+
+# q0: Hermes 品牌
+/Users/【你的帳號】/.hermes/skills/research/x-radar-report/scripts/x_search_with_fallback.sh '"Hermes Agent" OR "hermes-agent" OR "Hermes Web UI"' 30 /tmp/xresearch/q0.json
+
+# q1: OpenClaw 品牌
+/Users/【你的帳號】/.hermes/skills/research/x-radar-report/scripts/x_search_with_fallback.sh 'OpenClaw OR "OpenClaw Agent" OR clawhub OR ClawHub' 30 /tmp/xresearch/q1.json
+
+# q2: 安裝/上手體驗
+/Users/【你的帳號】/.hermes/skills/research/x-radar-report/scripts/x_search_with_fallback.sh '(Hermes OR OpenClaw) (install OR setup OR 安裝 OR 設定 OR 教學 OR tutorial)' 25 /tmp/xresearch/q2.json
+
+# q3: 商業應用 + Skills/Tools（serial，不與其他並行）
+q3_search() {
+  local query="$1" limit="$2" out="$3"
+  python3 - "$query" "$limit" "$out" <<'PYOPENCLI'
+import subprocess, sys
+query, limit, out = sys.argv[1:4]
+try:
+    with open(out, 'w') as f:
+        subprocess.run(['opencli', 'twitter', 'search', query, '--filter', 'live', '--limit', limit, '-f', 'json'], stdout=f, stderr=subprocess.DEVNULL, timeout=75)
+except Exception:
+    pass
+PYOPENCLI
+  if [ ! -s "$out" ]; then
+    python3 /Users/【你的帳號】/.hermes/skills/research/x-radar-report/scripts/x_search_cdp_fallback.py "$query" "$limit" "$out" || true
+  fi
+}
+q3_search '(Hermes OR OpenClaw) (賺錢 OR 變現 OR 商業 OR 獲利 OR automation OR business OR income)' 25 /tmp/xresearch/q3a.json
+q3_search '(Hermes OR OpenClaw) (skill OR tool OR plugin OR 工具 OR 方法 OR 技巧)' 25 /tmp/xresearch/q3b.json
+python3 - <<'PY'
+import json, pathlib
+out=[]
+for name in ['q3a.json','q3b.json']:
+    p=pathlib.Path('/tmp/xresearch')/name
+    raw=p.read_text(errors='replace') if p.exists() else ''
+    if not raw.strip(): continue
+    dec=json.JSONDecoder(); i=min([x for x in [raw.find('['), raw.find('{')] if x>=0], default=-1)
+    if i < 0: continue
+    try:
+        data,_=dec.raw_decode(raw[i:])
+    except Exception: continue
+    items=data.get('items', data.get('data', [])) if isinstance(data, dict) else data
+    if isinstance(items, list): out.extend(items)
+pathlib.Path('/tmp/xresearch/q3.json').write_text(json.dumps(out, ensure_ascii=False, indent=2))
+PY
+
+# q4: 教學內容/知識分享
+opencli twitter search '(hermes OR openclaw) (blog OR article OR guide OR "how to" OR "step by step" OR 教學 OR 指南)' --filter live --limit 25 -f json > /tmp/xresearch/q4.json
+
+# q5: 中文商業/使用/社群口碑
+opencli twitter search '(hermes OR openclaw) (商業 OR 使用 OR demo OR 分享 OR 心得)' --filter live --limit 25 -f json > /tmp/xresearch/q5.json
+
+# q6: 官方帳號/生態關鍵詞
+opencli twitter search 'nousresearch OR hermes_agent OR openclaw_agent OR clawhub OR tryhermesbox' --filter live --limit 25 -f json > /tmp/xresearch/q6.json
+```
+
+輪詢所有背景程序完成，然後驗證檔案存在：ls -la /tmp/xresearch/q*.json
+
+### Step 2: 合併、去重、過濾
+
+**關鍵處理：**
+- 剝離 trailing npm notices 後再 json.loads()
+- 處理 [] 和 {"items": []} 兩種形狀
+- 使用 created_at 判斷時效（opencli 欄位名）
+- 防禦性 author 解析（opencli 回傳字串非 dict）
+- engagement 欄位兼容：likes/views/retweets/quotes/replies 和 likeCount/viewCount/retweetCount/quoteCount/replyCount/bookmarkCount
+
+**過濾規則：**
+- 積極丟棄 @OpenClawAIX crypto spam（即使來自隨機帳號但含 Was Made Using - @OpenClawAIX、mc $... vol $... liq $...、長 base58/Solana contract 字串）
+- 丟棄 crypto/market-cap 假陽性（MCP 指 market cap 而非 Model Context Protocol）
+- 丟棄 JulianGoldieSEO 風格的 SEO funnel 貼文
+- 丟棄 vague "5-minute setup" / "zero cost" 貼文（無技術細節、低追隨者帳號）
+- 丟棄 bare URL-only 貼文（<40 字，僅 URL 無實質文字）
+- 丟棄 "Like + Repost + Comment" / "Follow me so I can DM" 互動誘餌
+- 丟棄 off-topic 高互動項目（運動、迷因、宗教、遊戲、一般生活方式）
+- 丟棄非框架 claw 假陽性（NVIDIA/COMPUTEX/Meet-A-Claw/lobster 主題活動、華為 Xiaoyi Claw 智慧家居產品）
+- 丟棄 name-collision "HermesOS" / "Hermes" crypto-token 專案
+- 丟棄文化/神話/藝術 "Hermes" 名稱碰撞（希臘信使神、Hermès 奢侈品牌）
+- 丟棄 TRON/Web3 區塊鏈貼文使用 "OpenClaw" 作為行銷 buzzword
+- 主題閘門：保留具體關於 Hermes Agent / OpenClaw / ClawHub 或相鄰可執行 agent-dev 術語的貼文
+
+**合併後結構：**
+```json
+{
+  "meta": { "generated_at": "ISO8601", "base_time": "ISO8601", "source_files": [...], "errors": [] },
+  "counts": { "total_raw": 0, "after_dedup": 0, "filtered_author": 0, "filtered_crypto": 0, "filtered_offtopic": 0, "kept": 0 },
+  "windows": { "12h": 0, "24h": 0, "36h": 0, "48h": 0, "72h": 0 },
+  "unique": []
+}
+```
+
+### Step 3: 分析並撰寫情報雷達結構
+
+```markdown
+# Hermes / OpenClaw 12h Intelligence Radar
+
+## 0. 高層結論
+- 今日一句話
+- 目前趨勢判斷：升溫 / 持平 / 降溫
+- 對 使用者 可行動價值
+
+## 1. 重大訊號 Top 5
+每則包含：來源/作者、發文時間、核心訊號、為什麼重要、可信度、可行動建議
+
+## 2. Hermes 動態
+- 新功能、安裝/使用痛點、社群情緒、可包成服務的機會
+
+## 3. OpenClaw / ClawHub 動態
+- 新功能、安裝/使用痛點、社群情緒、可包成服務的機會
+
+## 4. 競品與替代方案
+- Claude Code、Codex、Cursor/OpenCode/其他 agent
+
+## 5. 商業化機會
+- 可立即做成教學內容、可包成顧問服務、可做 SOP/trouble-shooting、可做自動化產品
+
+## 6. 風險與雜訊
+- 疑似 spam、未確認 claims、資料限制
+
+## 7. 下一步
+- 今天建議追蹤的人/關鍵字、建議驗證的 repo/工具/指令、建議輸出成內容的主題
+```
+
+**新信號類別追蹤：**
+- CVE / 安全公告（Hermes/OpenClaw 的 CVE 是生態成熟度指標）
+- 獨立安全研究 / 滲透測試
+- Provider/platform 整合公告
+- 學術論文引用
+- GitHub trending
+- 模型/框架整合測試
+- Loop engineering 論述
+- 跨世代/教育採用
+
+### Step 4: 寫入檔案並作為最終回應回傳
+
+**關鍵：報告必須儲存到 /tmp/xresearch/x-radar-$(date +%Y-%m-%d).txt 且 agent 的最終回應必須是完整報告文字。**
+下游 x-radar-to-notebooklm cron job 從檔案讀取 — 不通過 context_from 注入。
+
+驗證：
+```bash
+ls -lh /tmp/xresearch/x-radar-$(date +%Y-%m-%d).txt
+wc -c /tmp/xresearch/x-radar-$(date +%Y-%m-%d).txt
+```
+檔案必須 5KB+ 且包含完整繁體中文報告。
+
+### Step 5: 歸檔到 Obsidian Vault
+```bash
+REPORT_DATE=$(date +%Y-%m-%d_%H-%M-%S)
+VAULT_DIR="/Users/【你的帳號】/Documents/Obsidian Vault/30-雷達與產出/X雷達"
+mkdir -p "$VAULT_DIR"
+REPORT_FILE=$(ls -1t /tmp/xresearch/x-radar-*.txt 2>/dev/null | head -1)
+if [ -n "$REPORT_FILE" ]; then
+  cp "$REPORT_FILE" "$VAULT_DIR/x-radar-${REPORT_DATE}.md"
+fi
+```
+
+## 備援：xreach search path
+
+若 opencli 不可用：
+```bash
+xreach auth check
+mkdir -p /tmp/xresearch
+
+xreach search '"Hermes Agent" OR "hermes-agent" OR "Hermes Web UI"' --cookie-source chrome --json --count 30 > /tmp/xresearch/q0.json
+xreach search 'OpenClaw OR "OpenClaw Agent" OR clawhub OR ClawHub' --cookie-source chrome --json --count 30 > /tmp/xresearch/q1.json
+xreach search '(Hermes OR OpenClaw) (install OR setup OR 安裝 OR 設定 OR 教學 OR tutorial)' --cookie-source chrome --json --count 25 > /tmp/xresearch/q2.json
+xreach search '(Hermes OR OpenClaw OR ClawHub) (skill OR skills OR 技能)' --cookie-source chrome --json --count 15 > /tmp/xresearch/q3_skill.json
+xreach search '(Hermes OR OpenClaw OR ClawHub) (plugin OR plugins OR 插件 OR MCP OR "MCP server")' --cookie-source chrome --json --count 15 > /tmp/xresearch/q3_mcp.json
+xreach search '(Hermes OR OpenClaw OR ClawHub) (github OR github.com OR repo OR release OR update OR beta OR v0 OR skill OR plugin OR 技能 OR 插件)' --cookie-source chrome --json --count 30 > /tmp/xresearch/q4.json
+xreach search '"AI Agent" (自動化 OR workflow OR 工作流 OR 爬蟲 OR 社群) -is:retweet' --cookie-source chrome --json --count 25 > /tmp/xresearch/q5.json
+xreach search '(Hermes OR OpenClaw) (amazing OR 推薦 OR 好用 OR 真的 OR finally OR "game changer" OR 分享 OR 試用)' --cookie-source chrome --json --count 20 > /tmp/xresearch/q6.json
+```
+
+## 重要坑點
+- Google News sidecar 嚴格 24h  only — 每日 Hermes vs OpenClaw 新聞摘要只包含過去 24 小時的新聞
+- 平行搜尋執行取決於 tool host — 若 terminal 拒絕 shell & 背景化，使用 terminal(background=true) 呼叫並輪詢輸出
+- opencli JSON 輸出包含 trailing update messages — 剝離 "Update available..." 等 npm 通知後再解析
+- opencli JSON 形狀變化：raw list 或 {"items": []}；xreach 可能回傳 [[...]] 或 [...]
+- 不要用 cat file.json | python3 -c "..."（pipe-to-interpreter 被 Hermes 安全掃描封鎖）
+- 使用 execute_code 搭配 open() + json.load() 或 write_file 寫入腳本後 terminal 執行
+- 報告輸出為 .txt 供 NotebookLM 使用 — NotebookLM 處理 .txt 比 .md 更可靠
+- Cron 模式 execute_code 被封鎖 — 改用 write_file 寫入腳本，再 terminal("python3 /tmp/script.py") 執行
+- opencli created_at vs xreach createdAt — 使用正確的欄位名稱和解析格式
+- opencli views 欄位為字串 '1' 非 int 1 — 使用 safe_int() helper
+- q3 shell & + wait 成功率僅 67%；Python subprocess.run() serial 成功率 100% — 優先使用 Python subprocess
+- Stale q3 檔案可能從先前執行殘留 — 檢查 mtime 或強制重新生成
+- 報告標頭日期欄位必須匹配實際計算的 windows
+- 合併 JSON 輸出結構可能為 dict {unique: [...]} 而非 flat list — 讀取時用 data['unique']
+- 細節檔案以數字 tweet ID 命名 — 用 os.listdir() 迭代而非猜測檔名
+- Obsidian 歸檔日期換日陷阱：cp 使用 $(date +%Y-%m-%d) 可能選錯日期，改用 ls -t 找最新檔案
+        </pre>
+    </div>
+
+    <div class="skill-section" id="agent-reach">
+        <h2>agent-reach</h2>
+        <pre>
+# Agent Reach — Usage Guide
+
+Upstream tools for 13+ platforms. Call them directly.
+
+Run agent-reach doctor to check which channels are available.
+
+## ⚠️ Workspace Rules
+Never create files in the agent workspace. Use /tmp/ for temporary output and ~/.agent-reach/ for persistent data.
+
+## Web — Any URL
+```bash
+curl -s "https://r.jina.ai/URL"
+```
+
+### Google News RSS articles
+Google News RSS URLs do NOT resolve via curl -sL or Jina Reader. Must use browser-based fetching:
+```bash
+opencli browser open "https://news.google.com/rss/articles/CBMi...?oc=5"
+sleep 4
+opencli browser extract
+```
+
+## Web Search (Exa)
+```bash
+mcporter call 'exa.web_search_exa(query: "query", numResults: 5)'
+mcporter call 'exa.get_code_context_exa(query: "code question", tokensNum: 3000)'
+```
+
+## Twitter/X
+
+### OpenCLI X search
+```bash
+mkdir -p /tmp/x_research
+opencli doctor
+opencli twitter search 'QUERY' --filter live --limit 25 -f json > /tmp/x_research/q.json
+```
+
+### xreach
+```bash
+xreach search "query" -n 10 --json          # search
+xreach tweet URL_OR_ID --json                # read tweet
+xreach tweets @username -n 20 --json         # user timeline
+xreach thread URL_OR_ID --json               # full thread
+xreach home --cookie-source chrome --json    # logged-in home timeline
+xreach home --cookie-source chrome --json --count 50 --max-pages 4
+xreach home --cookie-source chrome --json --count 50 --max-pages 8
+```
+
+### Preferred workflow for real X feed
+1. Check available browser profiles: xreach auth browsers
+2. Verify xreach auth: xreach auth check
+3. Read home timeline: xreach home --cookie-source chrome --json --count 50 --max-pages 4
+4. For deeper sample: xreach home --cookie-source chrome --json --count 50 --max-pages 8
+5. Verify actual yield: check pagesLoaded and totalItems
+
+## YouTube (yt-dlp)
+```bash
+yt-dlp --dump-json "URL"
+yt-dlp --write-sub --write-auto-sub --sub-lang "zh-Hans,zh,en" --skip-download -o "/tmp/%(id)s" "URL"
+```
+
+## Bilibili (yt-dlp)
+```bash
+yt-dlp --dump-json "https://www.bilibili.com/video/BVxxx"
+yt-dlp --write-sub --write-auto-sub --sub-lang "zh-Hans,zh,en" --convert-subs vtt --skip-download -o "/tmp/%(id)s" "URL"
+```
+
+## Reddit
+```bash
+curl -s "https://www.reddit.com/r/SUBREDDIT/hot.json?limit=10" -H "User-Agent: agent-reach/1.0"
+curl -s "https://www.reddit.com/search.json?q=QUERY&limit=10" -H "User-Agent: agent-reach/1.0"
+```
+
+## GitHub (gh CLI)
+```bash
+gh search repos "query" --sort stars --limit 10
+gh repo view owner/repo
+gh search code "query" --language python
+gh issue list -R owner/repo --state open
+```
+
+## 小红书 / XiaoHongShu (mcporter)
+```bash
+mcporter call 'xiaohongshu.search_feeds(keyword: "query")'
+mcporter call 'xiaohongshu.get_feed_detail(feed_id: "xxx", xsec_token: "yyy")'
+mcporter call 'xiaohongshu.get_feed_detail(feed_id: "xxx", xsec_token: "yyy", load_all_comments: true)'
+mcporter call 'xiaohongshu.publish_content(title: "标题", content: "正文", images: ["/path/img.jpg"], tags: ["tag"])'
+```
+
+## 抖音 / Douyin (mcporter)
+```bash
+mcporter call 'douyin.parse_douyin_video_info(share_link: "https://v.douyin.com/xxx/")'
+mcporter call 'douyin.get_douyin_download_link(share_link: "https://v.douyin.com/xxx/")'
+```
+
+## 微信公众号 / WeChat Articles
+**Search** (miku_ai):
+```python
+python3 -c "
+import asyncio
+from miku_ai import get_wexin_article
+async def s():
+    for a in await get_wexin_article('query', 5):
+        print(f'{a[\"title\"]} | {a[\"url\"]}')
+asyncio.run(s())
+"
+```
+
+**Read** (Camoufox):
+```bash
+cd ~/.agent-reach/tools/wechat-article-for-ai && python3 main.py "https://mp.weixin.qq.com/s/ARTICLE_ID"
+```
+
+## LinkedIn (mcporter)
+```bash
+mcporter call 'linkedin.get_person_profile(linkedin_url: "https://linkedin.com/in/username")'
+mcporter call 'linkedin.search_people(keyword: "AI engineer", limit: 10)'
+```
+
+## RSS
+```python
+python3 -c "
+import feedparser
+for e in feedparser.parse('FEED_URL').entries[:5]:
+    print(f'{e.title} — {e.link}')
+"
+```
+
+## Troubleshooting
+- Channel not working? Run agent-reach doctor
+- Twitter fetch failed? Ensure undici is installed: npm install -g undici
+        </pre>
+    </div>
+
+    <div class="skill-section" id="xreach-home-timeline-digest">
+        <h2>xreach-home-timeline-digest</h2>
+        <pre>
+# X home timeline digest via xreach
+
+Use when the user wants X/Twitter results based on their actual logged-in feed rather than public search.
+
+## When to use
+- User says to read their X feed / timeline / wall
+- User wants a morning digest based on their own X account
+- CDP / browser automation is failing or overkill
+- Official X API credentials are unavailable
+
+## Core lesson
+If Chrome DevTools / CDP is unavailable, do NOT stop. Prefer xreach with the local Chrome cookie session.
+
+## Preconditions
+1. agent-reach / xreach installed
+2. User is already logged into X in local Chrome
+
+## Verification steps
+
+### 1. Confirm xreach is available
+```bash
+command -v xreach
+xreach --help
+```
+
+### 2. Check available browser profiles
+```bash
+xreach auth browsers
+```
+
+### 3. Verify authentication from local session
+```bash
+xreach auth check
+```
+Expected: Authenticated, masked auth token / ct0 shown
+
+## Primary fetch method
+
+### Read home timeline from logged-in Chrome session
+```bash
+mkdir -p /tmp/xreach-digest
+xreach home --cookie-source chrome --json --count 50 --max-pages 10 > /tmp/xreach-digest/home.json
+```
+
+Notes:
+- --cookie-source chrome is the key flag
+- --count 50 is a good page size
+- --max-pages 8 may be short in practice; use --max-pages 10 when user asks for ~200 items
+- JSON extraction pitfall: xreach home writes progress lines into the output file even when redirecting with >. Find the first { in the file content and parse from there:
+```python
+raw = open(path).read()
+idx = raw.find('{')
+data = json.loads(raw[idx:]) if idx > 0 else json.loads(raw)
+```
+
+## Sampling rule for digests
+Target ~200 timeline items minimum before filtering.
+Keep paginating until you reach ~200 items or hit practical limits.
+
+## Filtering guidance
+After fetching the large sample, filter out:
+- ads / promotions / coupons / giveaway posts
+- vague hype posts with no concrete claim
+- duplicate reposts of the same idea
+- low-information quote tweets like "so true"
+- old evergreen/promoted-looking posts
+- engagement-bait posts ("Like + Repost + Comment", "Follow me so I can DM")
+
+Prioritize:
+- AI tooling / model / infra updates
+- semiconductor / market / security signals
+- high-engagement posts with concrete product, pricing, policy, or workflow changes
+- recurring themes appearing across multiple posts
+
+**Theme classification sanity rule:** Do not let broad AI/agent terms make a post appear under unrelated buckets. For semiconductor/hardware, require hardware-specific terms (NVIDIA, GPU, TSMC, HBM, CPU, ASIC, etc.). For security, require security-specific terms (CVE, breach, token leak, exploit, malware, etc.).
+
+## Practical scoring heuristic
+- start from likeCount + 2*retweetCount + 1.5*quoteCount + 0.2*replyCount + 1.2*bookmarkCount + 0.0005*viewCount
+- down-rank replies heavily
+- down-rank retweets and quote-only posts unless quoted content is central
+- down-rank posts older than desired recency window
+- down-rank bare URL / image link-only posts
+- keep medium-engagement posts if unusually concrete and relevant
+- engagement alone is NOT enough: require topical relevance first
+- explicitly filter off-topic high-engagement items (religion, memes, entertainment, sports)
+
+## Recency / feed-quality pitfalls
+Add two guards before summarizing:
+1. Recency window: usually keep roughly last 48-72 hours
+2. Topic gate: require clear relevance to digest domains before using engagement for ranking
+
+## JSON structure note
+xreach home --json returns:
+```json
+{
+  "items": [...],
+  "pagesLoaded": 8,
+  "complete": true,
+  "totalItems": 261
+}
+```
+
+Per-item fields: id, text, createdAt, user.screenName, replyCount, retweetCount, likeCount, quoteCount, viewCount, bookmarkCount, isRetweet, isQuote, isReply, conversationId, lang, retweeted_status
+
+**Pitfall — user.screenName can be empty string:** Some items return user.screenName as "" even when user object has valid name. Use fallback: (t.get('user', {}) or {}).get('screenName', '') or '?'
+
+## Digest structure recommendation
+If part of full cross-source morning digest (Gmail + X), prefer morning-digest skill.
+If X-only:
+- # 郵件整理
+- # X 整理
+- # 今天最值得追的 3–5 條
+
+## Targeted search workflow
+When user asks whether X has newer take on a topic than an article/blog post:
+1. Verify auth: opencli doctor; xreach auth check; xreach auth browsers
+2. Use xreach search with logged-in Chrome cookies:
+```bash
+xreach search '"llmwiki"' --cookie-source chrome --json --count 10
+xreach search '"LLM Wiki" Karpathy' --cookie-source chrome --json --count 10
+```
+3. Compare returned posts against older article
+4. If API-based X tooling is unavailable, do NOT block if xreach works
+
+## Scheduled topical research reports via xreach search
+Use xreach search --cookie-source chrome for recurring topic radar.
+
+Recommended workflow:
+1. Preflight and record auth state
+```bash
+mkdir -p /tmp/xresearch
+date '+%Y-%m-%d %H:%M:%S %Z (%z)' > /tmp/xresearch/preflight.txt
+command -v xreach >> /tmp/xresearch/preflight.txt
+xreach auth check >> /tmp/xresearch/preflight.txt 2>&1 || true
+```
+
+2. Collect many query variants and dedupe
+```bash
+xreach search '"Hermes Agent" OR "Hermes Web UI" OR "hermes-agent"' --cookie-source chrome --json --count 25 > /tmp/xresearch/q0.json
+xreach search 'OpenClaw OR "OpenClaw Agent" OR openclaw' --cookie-source chrome --json --count 25 > /tmp/xresearch/q1.json
+xreach search 'ClawHub OR "clawhub.ai"' --cookie-source chrome --json --count 25 > /tmp/xresearch/q2.json
+xreach search 'Hermes install OR OpenClaw install OR Hermes setup OR OpenClaw setup' --cookie-source chrome --json --count 25 > /tmp/xresearch/q3.json
+xreach search 'Hermes skill OR OpenClaw skill OR "self-improving-agent"' --cookie-source chrome --json --count 25 > /tmp/xresearch/q4.json
+xreach search 'Hermes Web UI OR OpenClaw 安裝 OR Hermes 安裝 OR AI Agent 安裝' --cookie-source chrome --json --count 25 > /tmp/xresearch/q5.json
+```
+
+3. Use both top and latest for scheduled radars, then gate aggressively
+4. Do not trust X recency filters blindly — parse createdAt and explicitly count windows
+5. Fetch details for high-signal posts: xreach tweet TWEET_ID --json
+6. Apply topic gate before engagement ranking
+7. If nothing new appears, still report most common current pain points
+
+## Security scan workarounds (Hermes environment)
+- t.co URL expansion: ❌ curl -sI blocked; ✅ use execute_code with Python urllib.request
+- Web content fetching: ❌ curl | python3 blocked; ✅ use Jina Reader or execute_code with urllib
+- GitHub API: ❌ gh | python3 blocked; ✅ use gh --json field1,field2 then parse in execute_code
+- JSON analysis: ❌ cat | python3 blocked; ✅ use execute_code with open() + json.load()
+        </pre>
+    </div>
+
+    <div class="skill-section" id="x-radar-to-notebooklm">
+        <h2>x-radar-to-notebooklm</h2>
+        <pre>
+# X Radar → NotebookLM Artifacts
+
+## Trigger
+After x-radar-report completes, take its output and generate NotebookLM artifacts (slide deck, podcast, infographic).
+
+## Required Skills
+Load before executing: nb-s, notebooklm-py-install-and-verify
+
+## Input
+The report file at /tmp/xresearch/x-radar-$(date +%Y-%m-%d).txt — written by upstream x-radar-report cron job.
+
+**CRITICAL: DO NOT use context_from injection as the report content.** context_from only passes the upstream job's execution log (skill docs + summary), NOT the full report text. Always read the report from the file path above.
+
+## Workflow
+
+### Step 0: Verify auth
+```bash
+notebooklm auth check
+notebooklm auth check --test
+```
+auth check only verifies local storage/cookies; --test confirms live token fetch still works.
+
+### Step 1: Read report from file
+```bash
+REPORT_PATH="/tmp/xresearch/x-radar-$(date +%Y-%m-%d).txt"
+if [ ! -s "$REPORT_PATH" ]; then
+  YESTERDAY=$(date -v-1d +%Y-%m-%d 2>/dev/null || date -d 'yesterday' +%Y-%m-%d 2>/dev/null || echo "")
+  if [ -n "$YESTERDAY" ]; then
+    ALT_PATH="/tmp/xresearch/x-radar-${YESTERDAY}.txt"
+    if [ -s "$ALT_PATH" ]; then REPORT_PATH="$ALT_PATH"; fi
+  fi
+  if [ ! -s "$REPORT_PATH" ]; then
+    LATEST=$(ls -t /tmp/xresearch/x-radar-*.txt 2>/dev/null | head -1)
+    if [ -n "$LATEST" ] && [ -s "$LATEST" ]; then REPORT_PATH="$LATEST"; fi
+  fi
+fi
+
+if [ ! -s "$REPORT_PATH" ]; then
+  echo "FATAL: No report file found in /tmp/xresearch/"
+  exit 1
+fi
+```
+
+### Step 2: Create NotebookLM notebook
+```bash
+REPORT_DATE=$(basename "$REPORT_PATH" | sed -E 's/^x-radar-([0-9]{4}-[0-9]{2}-[0-9]{2})\.txt$/\1/')
+STATE="/tmp/hermes/x-radar-notebooklm-${REPORT_DATE}.state.json"
+CREATE_OUT="/tmp/hermes/notebook-create-${REPORT_DATE}.json"
+notebooklm create "X Radar ${REPORT_DATE}" --json > "$CREATE_OUT"
+```
+
+Capture notebook ID from JSON output. Parse both data["notebook"]["id"] and top-level id/notebook_id/notebookId.
+
+**Create RPC null recovery:** If notebooklm create returns RPC CCqFvf returned null result data but auth check --test and list --json both work, safely recycle a recent same-pipeline X Radar notebook: inspect it, delete old source/artifacts, rename it to X Radar ${REPORT_DATE}, persist recycled_notebook: true, then add new report.
+
+### Step 3: Add report as text source
+```bash
+notebooklm source add "$REPORT_PATH" --title "X Radar ${REPORT_DATE}" --notebook <id>
+```
+
+⚠️ Symlink false-positive: If CLI refuses with "Path is a symlink; pass --follow-symlinks", add --follow-symlinks flag.
+
+Wait for source processing:
+```bash
+notebooklm source wait <source_id> --notebook <id> --timeout 120
+```
+
+### Step 4: Generate slide deck, podcast, and infographic in parallel
+```bash
+notebooklm generate slide-deck --notebook <id> --language zh_Hant --no-wait --json
+notebooklm generate audio --notebook <id> --format deep-dive --length long --language zh_Hant --no-wait --json
+notebooklm generate infographic "include statistics and key findings" --notebook <id> --orientation landscape --detail detailed --style bento-grid --language zh_Hant --no-wait --json
+```
+
+**Polling pattern:**
+```bash
+notebooklm artifact list --notebook <id> 2>&1
+echo "---"
+notebooklm artifact poll <slide_task_id> --notebook <id> 2>&1
+echo "---"
+notebooklm artifact poll <audio_task_id> --notebook <id> 2>&1
+echo "---"
+notebooklm artifact poll <infographic_task_id> --notebook <id> 2>&1
+```
+If any still in_progress/pending, sleep 120s and re-run. Keep alternating foreground poll + 120s sleep until all show completed or failed.
+
+**Download:**
+```bash
+rm -f /tmp/hermes/x-radar-slides-${REPORT_DATE}.pdf /tmp/hermes/x-radar-podcast-raw-${REPORT_DATE}.wav /tmp/hermes/x-radar-podcast-${REPORT_DATE}-1.2x.mp3 /tmp/hermes/x-radar-infographic-${REPORT_DATE}.png
+
+notebooklm download slide-deck --notebook <id> --latest "/tmp/hermes/x-radar-slides-${REPORT_DATE}.pdf" --force
+notebooklm download infographic --notebook <id> --latest "/tmp/hermes/x-radar-infographic-${REPORT_DATE}.png" --force
+rm -f "/tmp/hermes/x-radar-podcast-raw-${REPORT_DATE}.wav"
+notebooklm download audio --notebook <id> --latest "/tmp/hermes/x-radar-podcast-raw-${REPORT_DATE}.wav" --force
+```
+
+### Step 5: Speed up to 1.2x
+```bash
+ffmpeg -y -i "/tmp/hermes/x-radar-podcast-raw-${REPORT_DATE}.wav" -filter:a "atempo=1.2" -vn "/tmp/hermes/x-radar-podcast-${REPORT_DATE}-1.2x.mp3"
+```
+
+### Step 6: Deliver
+Return the PDF slides and 1.2x MP3 podcast to the user.
+
+**⚠️ 已知問題：cron delivery 的 MEDIA: 行常漏掉 PDF。不能只靠 final response。**
+在 final response 之前，先用 send_message tool 明確送檔案到指定目標群組（預設 telegram:-4952435033）：
+```
+send_message(target="telegram:-4952435033", message="📊 X 雷達簡報\nMEDIA:/tmp/hermes/x-radar-slides-${REPORT_DATE}.pdf")
+send_message(target="telegram:-4952435033", message="🎙️ X 雷達 Podcast（1.2x）\nMEDIA:/tmp/hermes/x-radar-podcast-${REPORT_DATE}-1.2x.mp3")
+send_message(target="telegram:-4952435033", message="📈 X 雷達資訊圖表\nMEDIA:/tmp/hermes/x-radar-infographic-${REPORT_DATE}.png")
+```
+
+## Pitfalls
+- Browser tool NOT suitable for heavy scraping — triggers idempotent_no_progress_warning
+- Cron security approval traps — avoid piping command output into interpreters
+- CRITICAL: Read report from file, NEVER from context injection
+- NotebookLM notebooks are ephemeral — automatically cleaned up after cron run completes
+- Cron auto-pause: If skill fails, scheduler may auto-pause the job. Resume with hermes cron resume <id>
+- artifact poll does NOT support --json
+- notebooklm download needs --latest, not --artifact <id>
+- generate --wait blocks silently — always use --no-wait --json + polling loop
+- Correct source add: omit --type text for file paths; use --follow-symlinks if needed
+- Do NOT use --type text when adding a file path — NotebookLM ingests the literal path string
+- Google auth expires frequently — if auth check fails, run google-cdp-login-recovery skill first
+- Notebook create RPC null while auth/list work: recycle same-pipeline X Radar notebook, do NOT delete random user notebooks
+- Notebook corruption (RPC null): notebooklm source list/artifact poll/generate fails with RPC null even though list shows notebook exists → create new notebook and re-add sources
+- Foreground timeout: Hermes terminal clamps foreground to ~180s. Use polling loops instead.
+- Parallel generation saves ~50% wall-clock — launch both generate --no-wait --json calls together
+- Large reports: use local file source WITHOUT --type text
+- Audio download container format: notebooklm download audio saves as .wav but actual content is AAC in mp4 container — ffmpeg handles this transparently
+- Stale same-date deliverable collision: remove old files before download attempts
+- Stale raw audio collision: use date-stamped raw path, not undated reusable path
+- Source add output may be plain text — parse UUID directly from output
+- Either artifact can finish first — keep both polling loops active
+- Both slide deck and audio can fail silently: artifact poll shows status='failed' with error=None → retry in same notebook first, then create new notebook if second attempt also fails
+- Immediate RATE_LIMITED on generate slide-deck: retry up to 4 times (spacing: 60s, 90s, 120s, 180s), then deliver partial results
+- Audio tasks can stay pending for 10–15 minutes before starting — normal server-side queue behavior
+- Audio can regress from in_progress back to pending — DO NOT interpret as failure, continue polling
+- Use artifact list as PRIMARY status check, but treat download as final readiness probe
+- Multi-notebook fallback when one artifact type keeps failing: create second notebook with same source for remaining artifact
+- Retry-while-pending unsticks stalled tasks: launch second generate call without cancelling first
+- Cron job context_from injection floods context window — mitigation: cron prompt must explicitly instruct agent to IGNORE context_from content and only read from file path
+- Report file date ≠ cron execution date — upstream x-radar-report covers previous day's activity
+- Background terminal processes silently drop stdout — use foreground terminal calls instead
+- execute_code has 300s timeout — insufficient for tasks needing >5 min of polling
+- Infographic generation follows same pattern as slide-deck/audio
+        </pre>
+    </div>
+
+    <div class="skill-section" id="nb-s">
+        <h2>nb-s</h2>
+        <pre>
+# /nb-s — NotebookLM Slide Deck Shortcut
+
+## Trigger
+User types /nb-s followed by a URL, or says:
+- 「/nb-s https://...」
+- 「nb-s + 連結」
+- 「把這個丟到 NotebookLM 做簡報」
+
+## Workflow
+
+### Automated execution
+```bash
+python3 SKILL_DIR/scripts/nb_s.py "<URL>"
+```
+
+### Manual workflow
+
+#### Step 1: Extract URL from user message
+Grab the first URL from the message.
+
+#### Step 2: Normalize YouTube URLs
+```python
+import re
+def normalize_youtube_url(url):
+    m = re.search(r'(?:v=|youtu\.be/|shorts/|embed/|live/)([a-zA-Z0-9_-]{11})', url)
+    return f"https://www.youtube.com/watch?v={m.group(1)}" if m else url
+```
+
+#### Step 3: Get YouTube title (if YouTube URL)
+```python
+import json, urllib.request
+def get_youtube_title(url):
+    try:
+        oembed = f"https://www.youtube.com/oembed?url={urllib.request.quote(url)}&format=json"
+        data = json.loads(urllib.request.urlopen(oembed).read())
+        return data.get("title", url)[:80]
+    except:
+        return url[:80]
+```
+
+#### Step 4: Create NotebookLM notebook
+```bash
+notebooklm create "<TITLE>"
+```
+
+#### Step 5: Set active notebook
+```bash
+notebooklm use <notebook_id>
+```
+
+#### Step 6: Add URL as source
+```bash
+notebooklm source add "<URL>"
+```
+
+If fails for YouTube URL, use Whisper fallback:
+1. Download audio with yt-dlp -x --audio-format mp3
+2. Transcribe with /Users/【你的帳號】/.local/bin/whisper
+3. Add generated transcript .txt file as text source
+4. Continue to slide generation
+
+#### Step 7: Generate slide deck
+```bash
+# 1. Start generation, capture task ID
+notebooklm generate slide-deck --language zh_Hant --no-wait --json
+# → {"task_id": "...", "status": "pending"}
+
+# 2. Poll until completed (slide deck ~3-5 min, 2-3 polls)
+while true; do
+  result=$(notebooklm artifact poll <task_id> --notebook <notebook_id> 2>&1)
+  echo "$result"
+  echo "$result" | grep -q "completed" && break
+  sleep 90
+done
+
+# 3. Download the slide deck
+notebooklm download slide-deck --notebook <notebook_id> --latest /tmp/nb-s-slides-<date>.pdf
+```
+
+Do NOT use artifact wait — Hermes terminal clamps foreground to 180s, background waits are unreliable.
+
+## Error Handling
+| Scenario | Action |
+|---|---|
+| No URL found | Ask user for URL |
+| notebooklm not authenticated | Run google-cdp-login-recovery skill first |
+| source add fails for YouTube | Download audio, transcribe with Whisper, add transcript text source, then generate slides |
+| source add fails for non-YouTube | Report exact error, stop |
+| generate --wait times out | Use --no-wait --json + artifact wait --timeout 900 instead |
+
+## Pitfalls
+- NotebookLM auth expires frequently — Google cookies have short TTL. If source add fails with "Authentication expired", run google-cdp-login-recovery skill to rebuild storage_state.json from live CDP browser session
+- YouTube live URLs (/live/ID) may fail; NotebookLM expects /watch?v=ID format
+- artifact poll does NOT support --json
+- --type for source add: use text (not txt). Valid types: url, text, file, youtube
+- notebooklm download needs --notebook + --latest — --artifact <id> fails silently
+- generate --wait blocks silently — always use --no-wait --json + polling loop
+- Notebook naming — YouTube titles can be very long; truncate to ~80 chars
+- CLI command order: notebooklm generate slide-deck, NOT notebooklm slide-deck generate
+- No --output on generate: generation creates server-side artifact; download separately
+- Language code uses underscore: zh_Hant, not zh-Hant
+        </pre>
+    </div>
+
+    <div class="skill-section" id="notebooklm-py-install-and-verify">
+        <h2>notebooklm-py-install-and-verify</h2>
+        <pre>
+# notebooklm-py install and verify
+
+Use when the user wants to use https://github.com/teng-lin/notebooklm-py, especially on macOS where:
+- an old notebooklm-py may already be installed under Python 3.9
+- the CLI version and pip show version do not match
+- pip install --user fails with externally-managed-environment
+- browser login / Playwright support is needed
+
+## Core lesson
+Do NOT trust only pip show notebooklm-py. This package often ends up installed multiple ways, and the active notebooklm CLI may come from a different environment.
+
+## Verification workflow
+
+### 1. Check import / CLI / package state separately
+```bash
+python3 - <<'PY'
+import importlib.util, shutil
+for m in ['notebooklm_py','notebooklm']:
+    print(m, bool(importlib.util.find_spec(m)))
+for cmd in ['notebooklm','notebooklm-py']:
+    print(cmd, shutil.which(cmd))
+PY
+
+python3 -m pip show notebooklm-py || true
+notebooklm --version || true
+notebooklm --help || true
+```
+
+### 2. Confirm supported Python versions
+The repo currently requires Python >= 3.10.
+```bash
+python3 --version
+python3.11 --version 2>/dev/null || true
+python3.12 --version 2>/dev/null || true
+```
+
+## Installation strategy
+
+### Preferred on this machine: pipx
+If python3.11 -m pip install --user ... fails with externally-managed-environment, switch to pipx immediately.
+
+Install / upgrade. Try with browser + cookie extras first:
+```bash
+pipx install --force "notebooklm-py[browser,cookies]"
+```
+
+If that fails with pyo3-ffi build errors (Python >=3.13 — rookiepy's pyo3-ffi v0.20.3 only supports up to Python 3.12), fall back to browser-only:
+```bash
+pipx install --force "notebooklm-py[browser]"
+```
+
+### Playwright browser install
+After pipx install, install Chromium using the pipx venv's Python:
+```bash
+/Users/【你的帳號】/.local/pipx/venvs/notebooklm-py/bin/python -m playwright install chromium
+```
+
+## Post-install verification
+
+### 1. Confirm active version and path
+```bash
+notebooklm --version
+which notebooklm
+pipx list
+```
+
+### 2. Check authentication state
+```bash
+notebooklm auth check
+notebooklm auth check --test
+```
+- auth check passes but --test fails → cookies/storage exist, but session is expired; need to re-login
+- --test passes → auth is genuinely usable
+- if invalid/expired: notebooklm login
+
+## Login behavior on macOS
+notebooklm login opens a browser window and waits in terminal for manual completion:
+"1. Complete the Google login in the browser window
+2. Wait until you see the NotebookLM homepage
+3. Press ENTER here to save and close"
+
+## Auth recovery: preferred CDP-based method
+When notebooklm auth check --test fails and the user's Mac has Chrome already logged into the correct Google account, use CDP to navigate through the Google sign-in flow in a controlled browser, then extract the resulting cookies into storage_state.json.
+
+### Prerequisites
+- cdp-cli installed and working
+- Chrome launched with --remote-debugging-port=9223
+
+### CDP auth recovery steps
+1. Launch CDP Chrome: cdp-cli launch --port 9223
+2. Open NotebookLM: cdp-cli new "https://notebooklm.google.com/"
+3. Navigate the sign-in flow using cdp-cli eval
+4. Extract cookies via CDP and write to ~/.notebooklm/profiles/default/storage_state.json
+5. Verify: notebooklm auth check --test; notebooklm list
+
+### Safety notes
+- Never print cookie values or passwords back into chat
+- Back up the old storage_state.json before overwriting
+- This only works if Chrome on the Mac is already logged into the intended Google account
+
+## Fallback: browser-cookie3 method (when CDP unavailable)
+If cdp-cli is not available, use browser-cookie3 to read Chrome's cookie jar directly.
+
+```bash
+python3.11 -m venv ~/.venvs/notebooklm-py
+~/.venvs/notebooklm-py/bin/pip install -U pip "notebooklm-py[browser]" browser-cookie3
+```
+
+Rebuild storage from Chrome cookies:
+```bash
+~/.venvs/notebooklm-py/bin/python - <<'PY'
+import browser_cookie3, json, shutil, time
+from pathlib import Path
+
+storage = Path.home()/'.notebooklm'/'profiles'/'default'/'storage_state.json'
+backup = storage.with_name(f'storage_state.backup-{int(time.time())}.json')
+if storage.exists(): shutil.copy2(storage, backup)
+
+jar = browser_cookie3.chrome(domain_name='google.com')
+allowed_suffixes = (
+    '.google.com', '.google.com.tw', '.notebooklm.google.com', 'notebooklm.google.com',
+    'accounts.google.com', 'myaccount.google.com', 'ogs.google.com', 'www.google.com',
+    '.youtube.com', 'youtube.com'
+)
+
+cookies = []
+for c in jar:
+    if not any(c.domain == s or c.domain.endswith(s) for s in allowed_suffixes): continue
+    same_site = 'Lax'
+    rest = {k.lower(): v for k, v in getattr(c, '_rest', {}).items()}
+    if 'samesite' in rest:
+        val = str(rest['samesite']).lower()
+        if val in ('none', 'lax', 'strict'): same_site = val.capitalize()
+    cookies.append({
+        'name': c.name, 'value': c.value, 'domain': c.domain, 'path': c.path,
+        'expires': c.expires if c.expires is not None else -1,
+        'httpOnly': 'httponly' in rest, 'secure': bool(c.secure), 'sameSite': same_site,
+    })
+
+state = {'cookies': cookies, 'origins': []}
+storage.write_text(json.dumps(state))
+print('backup', backup)
+print('wrote', storage)
+print('cookie_count', len(cookies))
+PY
+```
+
+## Quick start commands
+```bash
+notebooklm list
+notebooklm create "My Research"
+notebooklm source add "https://example.com/article" --notebook <id>
+notebooklm source add ./notes.md --type text --title "My Notes" --notebook <id>
+notebooklm source wait <source_id> --notebook <id>
+notebooklm ask "What are the key themes?" --notebook <id>
+notebooklm generate audio --format deep-dive --language zh_Hant --notebook <id> --no-wait --json
+notebooklm generate slide-deck --language zh_Hant --notebook <id> --no-wait --json
+notebooklm artifact poll <artifact_id> --notebook <id>
+notebooklm artifact wait <artifact_id> --notebook <id> --timeout 900
+notebooklm download audio --artifact <artifact_id> --force ./podcast.mp3 --notebook <id>
+notebooklm download audio --latest --force ./podcast.mp3 --notebook <id>
+notebooklm download slide-deck --latest --force ./slides.pdf --notebook <id>
+notebooklm delete --notebook <id> --yes
+```
+
+## Pitfalls
+- Old Python 3.9 installs (~/Library/Python/3.9/bin/notebooklm) can coexist with pipx install (~/.local/bin/notebooklm). which notebooklm may resolve to the broken 3.9 version even when pipx has the correct one.
+  - Foreground fix: export PATH="$HOME/.local/bin:$PATH"
+  - Background/cron fix: Remove the stale binary: rm "$(which notebooklm)"; then which notebooklm verifies it points to pipx ~/.local/bin/notebooklm
+- pip show and notebooklm --version can disagree; inspect both
+- The package is unofficial and uses undocumented Google APIs
+- Rate limits and quota issues are normal for heavier generation tasks
+- X/Twitter URLs may ingest badly; pre-fetch to markdown first when needed
+- Browser login is mainly for auth setup; downloads use stored cookies
+- Password safety: If the user provides a Google password in chat, use it immediately via CDP/browser automation and do NOT echo the password value in any response
+- CLI command name traps: There is no notebooklm artifact download — downloads are per-type: notebooklm download audio, notebooklm download slide-deck, etc.
+- There is no notebooklm source add-text subcommand; inline text uses notebooklm source add "text here"
+- Download requires artifact selection: notebooklm download audio needs --artifact <id>, --latest, --earliest, --name, or --all
+- Generate commands: notebooklm generate audio supports --format (deep-dive|brief|critique|debate), --length (short|default|long), --language, --no-wait, --json
+- Avoid --wait (300s hardcoded timeout) — always use --no-wait --json + polling loop
+- --wait timeout is hardcoded 300s: Both notebooklm generate ... --wait and notebooklm artifact wait (without --timeout) default to 300s
+- Polling loop vs artifact wait in agent/terminal contexts: Hermes foreground processes clamped to ~180s, so artifact wait --timeout 900 will be killed mid-run. Background artifact wait is fragile (SIGTERM on session compaction, empty stdout capture). Reliable pattern:
+  1. notebooklm generate <type> ... --no-wait --json → capture task_id
+  2. Run notebooklm artifact list --notebook <id> and notebooklm artifact poll <task_id> --notebook <id> in a single foreground command
+  3. If not completed, sleep 120 and repeat
+  4. Once completed, download with notebooklm download <type> --latest <path> --notebook <id>
+- Deep-dive audio queue time: Audio generation can sit at status='pending' for 10–15 minutes before entering in_progress. Total wall-clock time can reach 25–30 minutes.
+- CJK notebook name matching: notebooklm artifact list --notebook <partial_title> matches by title, not ID. CJK titles may fail to match. Use full notebook UUID prefix instead.
+- v0.6.0 profiles migration: Upgrading from <0.6.0 to 0.6.0+ triggers migrate_to_profiles() on first CLI invocation. Stale Chrome lock symlinks cause shutil.copytree to fail. Fix:
+  ```bash
+  rm -f ~/.notebooklm/browser_profile/{RunningChromeVersion,SingletonCookie,SingletonLock,SingletonSocket}
+  rm -rf ~/.notebooklm/profiles/default
+  notebooklm auth check  # re-trigger migration
+  ```
+  After migration, storage_state.json lives at ~/.notebooklm/profiles/default/storage_state.json
+        </pre>
+    </div>
+
+    <div class="skill-section" id="hermes-openclaw-community-radar">
+        <h2>hermes-openclaw-community-radar</h2>
+        <pre>
+# Hermes / OpenClaw Community Radar
+
+Use when the user asks to combine X Radar and Reddit Radar, produce a unified Hermes/OpenClaw ecosystem report, or evaluate whether community signals can be packaged as services.
+
+## Source jobs and timing
+- X Radar cron: X Radar 12小時報告 (5b3203a52cfa) runs 0 7,19 * * *
+- Reddit Radar launchd: com.reddit-radar runs at 07:00 and 19:00 via StartCalendarInterval
+- Unified report cron should run after both producers finish, recommended 40 7,19 * * *
+
+## Input files
+- X Radar report: /tmp/xresearch/x-radar-$(date +%Y-%m-%d).txt
+- X merged data: /tmp/xresearch/merged.json
+- Reddit latest report: ~/reddit-radar/reports/latest.md
+- Reddit historical reports: ~/reddit-radar/reports/radar_YYYYMMDD_HHMM.md
+
+## Output files
+```text
+~/reports/hermes-openclaw-community-radar/latest.md
+~/reports/hermes-openclaw-community-radar/community-radar-${REPORT_STAMP}.md
+```
+
+## Report structure
+
+Always use Traditional Chinese and keep it business-actionable.
+
+```markdown
+# Hermes / OpenClaw 社群整合雷達 — YYYY-MM-DD HH:MM
+
+## 0. 高層結論
+- 今日一句話
+- 熱度判斷：升溫 / 持平 / 降溫
+- 對 使用者 的可行動價值
+
+## 1. 本輪最熱門討論 Top 10
+必須列出 10 個熱門討論項目；除非來源資料真的不足 10 個有效信號，才明確寫「本輪有效信號不足 10 則」並說明缺口。
+每個項目都要包含：
+- 熱門主題
+- 來源：X / Reddit / 兩邊都有
+- 代表訊號：貼文/討論摘要
+- 為什麼熱門：痛點、利益、爭議、時機、工具變化
+- 實際用處：對使用者/開發者/企業有什麼用
+- 可信度：高 / 中 / 低；X 未驗證 claims 要標「待驗證」
+- 可行動建議
+
+## 2. Hermes 動態
+- 新功能 / 新玩法
+- 安裝與使用痛點
+- 社群情緒
+- 可包成服務的機會
+
+## 3. OpenClaw / ClawHub 動態
+- 新功能 / 新玩法
+- 安裝與使用痛點
+- 社群情緒
+- 可包成服務的機會
+
+## 4. 交叉洞察：X vs Reddit
+- X 熱、Reddit 也熱：高優先
+- X 熱、Reddit 冷：可能是宣傳或早期訊號
+- Reddit 熱、X 冷：真實使用痛點或小眾高價值
+- 兩邊都冷但值得觀察：列入追蹤
+
+## 5. 商業化機會
+每個機會用以下格式：
+- 服務名稱
+- 目標客戶
+- 解決痛點
+- 交付物
+- 建置費 / 月費建議
+- 成本與風險
+- 下一步 MVP
+
+## 6. 可做成內容的題材
+- FB/社團貼文題目
+- 官網文章題目
+- 教學/短影音題目
+
+## 7. 風險與雜訊
+- spam / crypto / SEO funnel / 未驗證 claims
+- 資料來源限制
+- 下一輪要追的關鍵字
+```
+
+## Analysis rules
+- Do not merely concatenate X and Reddit reports. Synthesize cross-platform themes.
+- Rank topics by combined signal: engagement, comment volume, repeated pain, business usefulness, and credibility.
+- Reddit comments are useful for real pain and objections; X is useful for market narrative, KOL, repo/release, and hype detection.
+- If an item appears only on X and has no verification, mark it 「待驗證」.
+- If an item appears on Reddit with real user questions/errors, treat it as stronger service/SOP signal even with lower reach.
+- Explicitly answer: 「能不能包成服務？怎麼包？賣給誰？收多少？第一個 MVP 是什麼？」
+- Avoid tables in Telegram-facing final output; use bullets and labeled fields.
+
+## Pitfalls
+- enabled_toolsets: [terminal, file] IS TOO RESTRICTIVE for cron jobs in this pipeline. Minimum safe set is [terminal, file, web, skills, delegation, search].
+- Terminal tool can go completely blank — all commands return empty string or NoneType error. Fix: user runs hermes gateway restart from their Mac terminal.
+- Source files can be 0 bytes despite cron status "ok" — always verify with read_file before trusting last_status.
+- NotebookLM downstream cron command often uses wrong source path — /tmp/xresearch/community-radar-latest.txt does not exist for unified report. Always use ~/reports/hermes-openclaw-community-radar/latest.md.
+- Sibling subagent concurrent write to latest.md — When multiple agents write to latest.md, a Hermes cross-profile guard warns. Mitigation: always write timestamped community-radar-${REPORT_STAMP}.md version first, then copy to latest.md.
+
+## Preflight checks for cron runs
+```bash
+ls -lh /tmp/xresearch/x-radar-$(date +%Y-%m-%d).txt /tmp/xresearch/merged.json ~/reddit-radar/reports/latest.md
+stat -f '%Sm %N' /tmp/xresearch/x-radar-$(date +%Y-%m-%d).txt /tmp/xresearch/merged.json ~/reddit-radar/reports/latest.md
+```
+
+If Reddit latest report is missing or older than 3 hours around a scheduled run, run:
+```bash
+~/reddit-radar/run.sh
+```
+
+If X Radar report file is missing, check whether /tmp/xresearch/merged.json exists and is fresh (within last 12 hours). If available, read it directly and synthesize X portion from raw search data.
+
+If both .txt and merged.json are missing, write report with clear data limitation note and produce Top N section from Reddit only.
+
+## NotebookLM downstream
+After unified report is written, separate downstream cron generates NotebookLM slides + deep-dive podcast.
+
+**⚠️ CRITICAL: Source file path for NotebookLM downstream.**
+The unified report is written to ~/reports/hermes-openclaw-community-radar/latest.md.
+The NotebookLM downstream cron MUST read from this path.
+Do NOT use /tmp/xresearch/community-radar-latest.txt — if it exists at all it contains stale data from prior pipeline version.
+
+### NotebookLM downstream preflight check
+```bash
+REPORT_PATH="$HOME/reports/hermes-openclaw-community-radar/latest.md"
+if [ ! -s "$REPORT_PATH" ]; then
+  LATEST=$(ls -t ~/reports/hermes-openclaw-community-radar/community-radar-*.md 2>/dev/null | head -1)
+  if [ -n "$LATEST" ] && [ -s "$LATEST" ]; then
+    REPORT_PATH="$LATEST"
+  else
+    echo "FATAL: No unified report found."
+    exit 1
+  fi
+fi
+```
+
+### 關鍵命名慣例：使用 REPORT_STAMP（含 HHMM）
+x-radar-to-notebooklm 使用 REPORT_DATE（YYYY-MM-DD）作為臨時檔名後綴，因為 X Radar 每日僅執行一次。
+但社群雷達每 12 小時執行一次（08:30 和 20:30），必須使用含 HHMM 的 REPORT_STAMP 才能避免晚間產物覆蓋早上檔案。
+
+```bash
+REPORT_STAMP=$(date +%Y-%m-%d-%H%M)
+```
+
+不可用 $(date +%Y%m%d) 或 $(date +%Y-%m-%d) 替代。
+
+**⚠️ REPORT_STAMP 漂移（drift）：** 由於每個 terminal() 呼叫是獨立 shell session，若每個 terminal 都重新執行 $(date +%Y-%m-%d-%H%M)，分鐘可能跑掉。
+**Step 0 推導 REPORT_STAMP 後必須立即寫入 temp 檔**（/tmp/hermes/community-radar-stamp.txt），後續每個 terminal 呼叫開頭從該檔案讀回，確保整條管線用同一個時間戳。
+
+### Slide deck RATE_LIMITED 重試上限
+如果 notebooklm generate slide-deck 回傳 code=RATE_LIMITED，重試上限為 4 次（間隔 60s、90s、120s、180s）。4 次後仍被限速則交付部分產物（音檔+資訊圖表），勿繼續重試。
+
+### 完整工作流程
+See references/community-radar-notebooklm-workflow.md for complete adapted workflow.
+
+## Telegram delivery routing
+- Unified radar report and downstream NotebookLM artifacts belong in Telegram「情報」only: telegram:-4952435033
+- Do not paste full radar report, PDF, or podcast into current/origin chat when user triggers manual rerun from another group
+- After manual trigger from non-情報 group, send/deliver artifacts to telegram:-4952435033, then reply in current chat with only short status line
+
+Recommended downstream cron timing:
+- Unified community report: 40 7,19 * * *
+- Community Radar → NotebookLM: 30 8,20 * * *
+
+Artifact naming convention:
+```text
+/tmp/hermes/community-radar-slides-${REPORT_STAMP}.pdf
+/tmp/hermes/community-radar-podcast-raw-${REPORT_STAMP}.wav
+/tmp/hermes/community-radar-podcast-${REPORT_STAMP}-1.2x.mp3
+/tmp/hermes/community-radar-infographic-${REPORT_STAMP}.png
+```
+
+**⚠️ 必用 HHMM，不可只用 YYYY-MM-DD。** 此管線每 12 小時執行一次。
+
+**⚠️ Cron prompt 的產物路徑通常是錯的 — 必須強制覆蓋。**
+Agent 收到 cron prompt 時，必須優先遵循技能的 REPORT_STAMP 命名慣例，而非 cron prompt 的檔案路徑指示。
+
+### Step 9: Google Drive upload + share
+Upload all three artifacts, then set them as publicly readable.
+
+```bash
+ACCOUNT="【你的個人Gmail】"
+PARENT_ID="... 從 memory 讀取 ..."
+FOLDER_CREATE=$(gog -a "$ACCOUNT" -j drive mkdir "$(date +%Y-%m-%d)-社群雷達" --parent="$PARENT_ID" 2>&1)
+FOLDER_ID=$(echo "$FOLDER_CREATE" | grep -oE '[0-9a-zA-Z_-]{25,}' | head -1)
+```
+
+每個檔案獨立上傳 + share（無 pipe，避免 Tirith security block）：
+```bash
+gog -a "$ACCOUNT" -j drive upload /tmp/hermes/community-radar-slides-${REPORT_STAMP}.pdf \
+  --parent="$FOLDER_ID" --name="社群雷達簡報_${REPORT_STAMP}"
+gog -a "$ACCOUNT" -j drive share "<file_id>" --to anyone --role reader --discoverable -y
+```
+
+上傳後必須自動設為公開可讀（--to anyone --role reader --discoverable），這是 使用者 的要求。
+
+### Pitfall: gog upload 回傳 JSON 路徑為 .file.id
+gog drive upload 回傳 JSON 結構為 {"file": {"id": "...", "webViewLink": "..."}}，不是頂層 id。
+
+### Pitfall: gog 授權失效
+如果 gog drive upload 回傳 OAuth 錯誤（invalid_grant），先檢查授權狀態：gog auth list。若帳號存在但 API 失敗，跑 gog-google-reauth skill 重新授權。
+
+### Pitfall: gog upload 被 security approval（pipe-to-interpreter）擋掉
+把 gog 輸出 pipe 到 python3 來解析 JSON會觸發 Tirith 安全規則。修正：每個檔案獨立一個 gog 命令，不 pipe 到任何 interpreter。
+
+### Pitfall: macOS grep 無 -P（Perl regex）flag
+macOS 的 BSD grep 不支援 -P。修正方案：
+1. 用 Python 解析 JSON（最穩）
+2. 用 grep -oE + extended regex
+3. 用 sed 取代 grep -P
+
+## Terminal-broken fallback (manual rerun)
+When terminal tool returns empty output or NoneType errors (all shell commands fail), do NOT wait for gateway restart. Use Hermes-native tools instead:
+- X data: Use x_search tool directly (Grok-summarized results, note limitations)
+- Reddit data: Use read_file on ~/reddit-radar/reports/latest.md directly
+- Report output: Use write_file for writing the report; read_file for verification
+
+## Manual rerun / recovery pattern
+When user says to rerun integrated radar (e.g. 「重跑一次」, 「從跑一次」):
+1. Trigger cron if appropriate, but treat as asynchronous/queued
+2. Verify report actually changed with mtime + size:
+```bash
+stat -f '%Sm %z %N' ~/reports/hermes-openclaw-community-radar/latest.md
+wc -c ~/reports/hermes-openclaw-community-radar/latest.md
+```
+3. If latest.md did not update, synthesize report manually from current source files
+4. If cron/agent may have modified same report concurrently, read/check latest.md before overwriting
+5. If user expects delivery now, send final report text to telegram:-4952435033 after local verification
+
+## Obsidian Vault archive
+After writing report, archive copy to Obsidian Vault for qmd indexing:
+```bash
+VAULT_DIR="/Users/【你的帳號】/Documents/Obsidian Vault/30-雷達與產出/整合雷達"
+mkdir -p "$VAULT_DIR"
+cp "$HOME/reports/hermes-openclaw-community-radar/community-radar-${REPORT_STAMP}.md" \
+   "$VAULT_DIR/整合雷達-${REPORT_STAMP}.md"
+```
+
+## Verification
+After writing:
+```bash
+wc -c ~/reports/hermes-openclaw-community-radar/latest.md
+stat -f '%Sm %N' ~/reports/hermes-openclaw-community-radar/latest.md
+```
+Target size: at least 5KB for normal runs.
+
+After NotebookLM downstream:
+```bash
+ls -lh /tmp/hermes/community-radar-slides-*.pdf /tmp/hermes/community-radar-podcast-*-1.2x.mp3
+```
+        </pre>
+    </div>
+
+    <div class="skill-section" id="reddit-radar">
+        <h2>reddit-radar</h2>
+        <pre>
+# Reddit Radar
+
+Use when the user asks about reddit-radar, Reddit auto crawler, Reddit radar reports, or the sale/self-use skill from 【你的GitHubUser】/【你的私有Repo】.
+
+## Installed paths on this machine
+- Source repo: ~/hermes-business
+- Runtime directory: ~/reddit-radar/
+- Entrypoint wrapper: ~/reddit-radar/run.sh
+- Main crawler: ~/reddit-radar/scraper.py
+- Latest report: ~/reddit-radar/reports/latest.md
+- Historical reports: ~/reddit-radar/reports/radar_YYYYMMDD_HHMM.md
+- launchd plist: ~/Library/LaunchAgents/com.reddit-radar.plist
+- Logs: stdout ~/reddit-radar/logs/scraper.log, stderr ~/reddit-radar/logs/scraper.err.log
+
+## What it does
+Every 12 hours it fetches new posts and top comments from:
+- r/hermesagent
+- r/openclaw
+
+Then it writes a structured Traditional Chinese Markdown report.
+
+## Dependencies
+Installed through uv tool:
+```bash
+uv tool install rdt-cli
+rdt --version
+```
+
+## Common commands
+
+Run once manually:
+```bash
+~/reddit-radar/run.sh
+```
+
+Read latest report:
+```bash
+open ~/reddit-radar/reports/latest.md
+# or
+sed -n '1,120p' ~/reddit-radar/reports/latest.md
+```
+
+Check scheduler:
+```bash
+launchctl print gui/$(id -u)/com.reddit-radar | sed -n '1,90p'
+launchctl list | grep reddit-radar
+```
+
+Watch logs:
+```bash
+tail -f ~/reddit-radar/logs/scraper.log
+```
+
+Reload scheduler after edits:
+```bash
+launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.reddit-radar.plist 2>/dev/null || true
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.reddit-radar.plist
+launchctl enable gui/$(id -u)/com.reddit-radar
+```
+
+## Change monitored subreddits
+Edit ~/reddit-radar/scraper.py:
+```python
+SUBREDDITS = ["hermesagent", "openclaw", "newsubreddit"]
+```
+Keep subreddit names without the r/ prefix.
+
+## Current schedule
+~/Library/LaunchAgents/com.reddit-radar.plist uses StartCalendarInterval, aligned with X Radar:
+```xml
+<key>StartCalendarInterval</key>
+<array>
+  <dict><key>Hour</key><integer>7</integer><key>Minute</key><integer>0</integer></dict>
+  <dict><key>Hour</key><integer>19</integer><key>Minute</key><integer>0</integer></dict>
+</array>
+```
+Reload launchd after editing. The unified community report cron runs later at 40 7,19 * * *.
+
+## Verification checklist
+- rdt --version shows a version
+- ~/reddit-radar/run.sh exits successfully
+- ~/reddit-radar/reports/latest.md exists and is non-empty
+- launchctl print gui/$(id -u)/com.reddit-radar shows run interval = 43200 seconds
+
+## Pitfalls
+- launchd has a minimal PATH. Keep PATH setup in ~/reddit-radar/run.sh; do not rely on shell startup files.
+- The repo README suggests logs at ~/reddit-radar/scraper.log; this install stores logs under ~/reddit-radar/logs/ for clarity.
+- Manual runs may take about 1 minute because each post comment fetch sleeps 1 second.
+        </pre>
+    </div>
+
+    <div class="skill-section" id="zonetech-old-customer-followup-tracker">
+        <h2>zonetech-old-customer-followup-tracker</h2>
+        <pre>
+# ZoneTech Old-Customer Follow-up Tracker
+
+## Overview
+使用者 的老客戶開發追蹤流程：Google Sheet 裡 E 欄是 LINE@ 官方帳號聊天室名稱；用 LINE@ 讀該聊天室最後五則訊息，判斷客戶對老客戶激活訊息的回應狀態，然後回寫：
+- G 欄：狀態，三選一：未回覆 / 有興趣 / 討論中
+- H 欄：最後聯繫時間，依 LINE@ 最後一則訊息時間更新
+
+## Fixed Sheet
+- Spreadsheet title: 2026老客戶開發訊息追蹤
+- Spreadsheet ID: 【請貼上你的GoogleSheet-ID】
+- Tab name: 老客戶開發訊息
+- Range: A1:H1000
+- Columns:
+  - A: 處理時間
+  - B: 日期
+  - C: 老客戶開發
+  - D: 公司名稱
+  - E: 公司line@聊天室名稱
+  - F: 訊息
+  - G: 狀態（注意前方有空白字元，讀取後.strip()處理）
+  - H: 最後聯絡時間
+
+Use gog with the company Google account:
+```bash
+gog sheets get 【請貼上你的GoogleSheet-ID】 "'老客戶開發訊息'!A1:H30" --json --account 【你的公司Email】
+```
+
+## Required Skills
+Load these first:
+- line-opencli-all — OpenCLI-based LINE@ API extraction
+- google-workspace — gog / Sheets read-write commands
+
+## When to Use
+- 「老客戶開發追蹤」
+- 「依照 E 欄去 LINE@ 抓聯繫人」
+- 「抓最後五則訊息，判斷未回覆/有興趣/討論中」
+- 「更新 G/H 欄」
+- 「跑一個客戶試試看」or batch process the sheet
+
+## Classification Rules (v2 — Corrected 2026/5/28)
+
+### ⚠️ Critical Step 1: Verify Activation Was Sent Before Classifying
+**This is the #1 source of classification errors.** LINE@ chats are shared between sales AND support. A customer who only used the chat for technical support and said 「謝謝」 is NOT a sales lead.
+
+Scan the last 25 events for activation patterns:
+- 「好久不見！」 / 「老客戶開發」
+- 「感謝XXX長期以來對蓋斯克服務的信任」
+- 「距離上次合作已超過」
+
+If NONE contain activation text: **this chat has no activation response → classify as 未回覆 regardless of customer replies.**
+
+### Rule: Support-Only Chat → 未回覆
+If the last events show pure support/admin with NO activation sent:
+- Technical issue reports → resolution → customer says 「謝謝」 / 「好的」 / 「了解」
+- Invoice / billing questions
+- General admin (password reset, account info)
+- Engineer visit scheduling
+→ 未回覆 — no activation was delivered here.
+
+### 未回覆 — Three Scenarios
+1. **No customer reply after activation** — last event is from us.
+2. **No activation detected** — chat is support-only, regardless of customer activity.
+3. **Brush-off reply** — customer responded to activation but with a polite decline:
+   - 「目前穩定」 / 「目前還行」 / 「目前OK」 / 「目前都穩定」 / 「目前都還算ok」
+   - 「目前暫時應該沒有」 / 「目前沒」 / 「目前正常」 / 「目前解決了」
+   - 「都還穩定」 / 「都還正常」 / 「沒有什麼問題」 / 「沒什麼問題」
+   - 「使用上應該都還算順利」
+   - 「沒有收到工地的回饋」 / 「沒有反應」
+   - 「還行」 / 「還好」 / 「沒」
+   - 「謝謝」 / 「感謝關心」 (as the only response to activation)
+   **These are NOT 「有興趣」** — they are polite brush-offs. Classify as 未回覆.
+
+### 有興趣 — Genuine Soft Positive
+Use when customer replied and showed actual interest, but hasn't started concrete discussion:
+- 「感謝資訊提供，我們評估一下」
+- 「可以先給我資料」
+- 「之後可以聊聊」 / 「可以聊聊」
+
+**Do NOT classify as 有興趣 when:**
+- Customer said 「目前穩定」 or equivalent brush-off
+- The reply is purely acknowledging the message without indicating interest
+- The conversation is entirely technical support
+
+### 討論中 — Active Purchase Discussion
+Use only when customer is actively discussing a concrete purchase:
+- Asking for price: 「多少錢」 / 「報價」 / 「價格」 / 「費用」 / 「這個價格有變便宜了嗎」
+- Asking for quotation: 「可以幫我估價」 / 「請報價」 / 「報價單」
+- Requesting service: 「可以幫我處理」 / 「想了解...方案」
+- Scheduling for purchase: 「約時間看一下」 / 「什麼時候可以」 / 「能幫我們評估」
+- On-site installation discussions: 「工程師能到現場嗎」 / 「到府安裝」
+
+### Key Anti-Patterns (What NOT to Do)
+1. Don't confuse tech support with interest.
+2. Don't confuse acknowledgement with enthusiasm.
+3. Don't elevate engineering questions to sales.
+4. Don't treat 「目前穩定」 as positive.
+5. Don't classify 外包廠商. If a chat is known as 外包合作廠商, skip it entirely.
+
+### Examples from Production (2026/5/28)
+| Chat | Actual Pattern | Activation? | Correct Status |
+|------|---------------|:-----------:|:-------------:|
+| 亞洲藝術中心 | 正航安裝, 備份確認 → 「謝謝」 | ❌ | 未回覆 |
+| 興躍設計 | 「目前好像還行，有需要再跟你們說喔」 | ✅ | 未回覆 (brush-off) |
+| 飛狼 | Activation + invoice → printer path question | ✅ | 未回覆 (tech Q) |
+| 鈦客星 | 外包廠商 — skip entirely | ✅ | Skip/未回覆 |
+| 黑獅實業 | 「先以此做估算給您喔，請問數量異動會影響報價嗎」 | ✅ | 討論中 ✓ |
+| 寬象 | 「不知道這個價格有變便宜了嗎」 (GPU price) | ✅ | 討論中 ✓ |
+| 莊臣害蟲防治 | Invoice → 「要麻煩更新報價單」 → 「可以送回去安裝嗎」 | ✅ | 討論中 ✓ |
+
+## LINEBiz Session
+**重要：只能使用 OpenCLI 存取 LINEBiz（使用者 指定）。不使用 CDP。**
+Chat 頁面 URL: https://chat.line.biz/【你的LINE-BOT-ID】
+
+### Pre-flight: Verify Login State Before Batch
+```bash
+opencli browser linebiz eval "location.href"
+```
+如果回傳 URL 含 account.line.biz/login 或 access.line.me，session 過期，需先走 auto-login。
+
+### ⚠️ Session 過期 ≠ 中止 — 先嘗試自動登入
+**Session 過期是預期行為，不是錯誤。** 用 OpenCLI 加上 CDP auto-login 恢復（LineBiz Chrome profile 已記住帳號「Gask 蓋斯克」，只需點 2 下「登入」）。
+
+### 為什麼會過期？
+- LINE Business ID 使用 OAuth 2.0，access token 有時效限制
+- Chrome profile 保存的是已記住帳號的狀態，不是永不過期的 token
+- 每次過期只需要點 2 下「登入」就能恢復
+
+## Finding Old Chats via UI Search + Click
+The LINE@ chat list only loads the 25 most recently-active chats. Older chats require:
+
+**Step 1 — Search in the chat list input:**
+```javascript
+const input = document.getElementById('chatListSearchInput');
+input.focus();
+input.value = '';
+input.value = '客戶關鍵字';
+input.dispatchEvent(new Event('input', {bubbles: true}));
+await new Promise(r => setTimeout(r, 2000));
+```
+
+**Step 2 — Find the matching DOM element:**
+```javascript
+const items = document.querySelectorAll('.list-group-item');
+items.forEach(el => {
+    const t = el.textContent?.trim() || '';
+    if (t.includes('客戶名')) {
+        const r = el.getBoundingClientRect();
+        // {y: r.y, x: r.x, w: r.width, h: r.height}
+    }
+});
+```
+
+**Step 3 — Click via OpenCLI eval (not CDP):**
+```javascript
+const items = document.querySelectorAll('.list-group-item');
+let target = null;
+items.forEach(el => {
+    const t = el.textContent?.trim() || '';
+    if (t.includes('客戶名')) target = el;
+});
+if (target) { target.click(); 'clicked'; } else { 'not found'; }
+```
+
+Then extract chatId from URL after navigation: location.href.match(/\/chat\/([A-Za-z0-9]+)/)?.[1] || ''
+
+**Pitfalls:**
+- DOM uses div elements, not a tags. querySelectorAll('a[href*="/chat/"]') returns 0 results.
+- After click, URL becomes /chat/{chatId}. chatId starts with U (user) or C (group).
+- Each click navigates the page, which can close the CDP websocket. Reconnect between batches.
+- Search is a frontend DOM filter, not an API call. Results appear in .list-group-item.
+- Use a short keyword (first 10-15 chars of customer name). Full E-column names often fail.
+
+## Read Sheet Rows
+```bash
+gog sheets get 【請貼上你的GoogleSheet-ID】 "'老客戶開發訊息'!A1:H60" --json --account 【你的公司Email】 > /tmp/old_customer_rows.json
+```
+Skip rows whose E column is blank or x.
+
+## LINE@ Lookup Script Pattern
+Use opencli browser linebiz eval (not CDP) to run in-page fetch() so cookies/session are included. This avoids marking chats as read in the UI.
+
+Write a temp script such as /tmp/line_find_customer.py that:
+1. Calls opencli browser linebiz eval with the JS code.
+2. Fetches /api/v2/bots/{BOT}/chats?...limit=25...（注意：只回傳近期 25 筆，舊聊天室需用 UI 搜尋方式）。
+3. Matches E-column target name exactly first, then normalized fuzzy match.
+4. Calls /api/v3/bots/{BOT}/chats/{chatId}/messages?limit=25.
+5. Filters to message and messageSent, sorts by timestamp, returns last five.
+
+Normalization: name.replace(/訂閱制|點數合約|蓋斯克|科技|股份有限公司|有限公司|x|X|\s+/g,'')
+
+Run pattern:
+```bash
+python3 /tmp/line_find_customer.py '訂閱制 貝殼放大 資訊採購' > /tmp/line_customer_test.json
+```
+
+## Determine Last Contact Time
+Use the timestamp of the latest message event in last5, converted to Asia/Taipei:
+```python
+import datetime, zoneinfo
+last_ts = last5[-1]['timestamp']
+dt = datetime.datetime.fromtimestamp(last_ts/1000, tz=zoneinfo.ZoneInfo('Asia/Taipei'))
+last_contact = dt.strftime('%Y/%-m/%-d %H:%M')
+```
+If %-m is not portable, use zero-padded %Y/%m/%d %H:%M; Sheet accepts either.
+
+## Intent Scoring (1-10) for Phone Followup Prioritization
+
+### Score Scale
+| Score | Meaning | Action |
+|-------|---------|--------|
+| 9-10 | Actively asking about products/pricing | Call immediately |
+| 7-8 | Scheduling or discussing concrete needs | Call today |
+| 5-6 | Positive engagement, non-specific | Call this week |
+| 3-4 | Polite acknowledgment only | Low priority |
+| 1-2 | Stickers/images or no customer response | Skip |
+| 0 | Chat not found in LINE@ | N/A |
+
+### Scoring Algorithm
+```python
+customer_msgs = [m for m in last10 if not m['isSent']]
+customer_texts = [m['text'] for m in customer_msgs if m['text'] not in ('[其他]', '[貼圖]')]
+all_text = ' '.join(customer_texts)
+
+asking_products = any(kw in all_text for kw in [
+    '多少錢','報價','價格','費用','可以幫','想了解','需要','租','買','採購','能幫'])
+scheduling = any(kw in all_text for kw in [
+    '約時間','這幾天','今天','明天','什麼時候'])
+
+high_count = sum(1 for kw in purchase_high if kw in all_text)
+medium_count = sum(1 for kw in purchase_medium if kw in all_text)
+
+if asking_products and scheduling: score = 10
+elif asking_products:              score = 9
+elif high_count >= 3:              score = 8
+elif high_count >= 2:              score = 7
+elif scheduling:                   score = 7
+elif high_count >= 1:              score = 6
+elif medium_count >= 3:            score = 6
+elif medium_count >= 1:            score = 5
+else:                              score = 3
+```
+
+### Edge Cases
+- No messages at all → 1
+- Only our messages sent → 1
+- Only stickers/images → 2
+- 「評估一下，若有需求再約時間詳聊」 → 5
+
+## Write Back to Sheet
+For row N, update G{N}:H{N}:
+```bash
+gog sheets update 【請貼上你的GoogleSheet-ID】 "'老客戶開發訊息'!G{N}:H{N}" \
+  --values-json '[["有興趣","2026/5/13 17:50"]]' \
+  --input USER_ENTERED \
+  --json \
+  --account 【你的公司Email】
+```
+
+### Google API Rate Limiting
+Individual gog sheets update calls hit Google Sheets API rate limits (~60 writes/minute). When writing 50+ rows:
+- Add 0.5-1s delay between calls
+- Batch writes when possible using --values-json with multiple rows per range (e.g. G1:H10)
+- Rate limit recovers after ~1 minute of pause
+- Failed writes (429 errors) should be retried individually after 30s backoff
+
+Always verify after writing:
+```bash
+gog sheets get 【請貼上你的GoogleSheet-ID】 "'老客戶開發訊息'!A1:H5" --json --account 【你的公司Email】
+```
+
+## Cross-Reference Business Queries (Sheet + Calendar + Session History)
+使用者 sometimes asks aggregate questions like 「這個月有多少到府的案子」or「幫我查最近有哪些新增的到府客戶」.
+
+### Workflow
+1. Parse the query — identify target category (到福→到府安裝, 新增的→G/H欄有變更, 這個月→當月)
+2. Google Calendar — check for related events with gog calendar events
+3. Session history — search past sessions with session_search
+4. Sheet status query — read full Sheet and filter by status + keyword
+5. Merge results — report count, company names, row numbers, calendar match status
+
+### G 欄特殊值：確認LINE@
+當 LINE@ 找不到對應聊天室名稱時，G 欄不回寫「未回覆」，改寫「確認LINE@」作為標記，讓業務手動確認 LINE@ 名稱是否正確。
+
+## Delivery Convention
+Cron/report output for this old-customer tracker should go to Telegram 「業務 愛馬仕」 only. Do not deliver to 「客服 愛馬仕」 or generic origin/current chats unless 使用者 explicitly asks for one-off reroute.
+
+### OpenCLI eval_js: Retry on Broken Pipe
+opencli browser linebiz eval can terminate mid-batch with [Errno 32] Broken pipe when:
+- The LINEBiz extension disconnects from the daemon
+- The JavaScript code is too complex for the extension to handle synchronously
+- The OpenCLI daemon itself times out the pipe
+
+Defense: Catch BrokenPipeError and OSError in eval_js(). On failure, wait 1s and retry once. If still broken, mark as failure and move on.
+
+### OpenCLI Init: Navigate to Main Chat Page
+Navigate to https://chat.line.biz/ (the main chat list page), NOT https://chat.line.biz/{BOT_ID}. The specific chat page does not load the chat list DOM or API context properly. Wait 5 seconds for full JS render + API bootstrap.
+
+### Chat List Limit: 25 → 100
+The default limit=25 in the LINE@ chat API call misses many matching customers. Increase to limit=100 for better coverage.
+
+### Sheet Write: Batch 20 Rows at a Time
+Individual gog sheets update calls for 50+ rows time out. Batch writes using a range covering multiple rows:
+```python
+batch_size = 20
+sorted_rows = sorted(row_map.keys())
+for batch_start in range(0, len(sorted_rows), batch_size):
+    batch = sorted_rows[batch_start:batch_start + batch_size]
+    first_row = batch[0]
+    last_row = batch[-1]
+    values = [row_map[rn] for rn in batch]
+    args = ['gog', 'sheets', 'update', SHEET_ID,
+            f"{TAB}!G{first_row}:H{last_row}",
+            '--values-json', json.dumps(values, ensure_ascii=False),
+            '--input', 'USER_ENTERED', '--json', '--account', ACCOUNT]
+    subprocess.run(args, capture_output=True, text=True, timeout=30)
+    time.sleep(0.3)
+```
+This reduces 455 individual API calls to ~23 batch calls.
+
+## Batch Processing with Checkpointing
+For processing 50+ customers, use these patterns to avoid losing results:
+
+### OpenCLI-Only Architecture (v3 — 使用者 指定)
+All cron jobs and production runs must use this approach. No CDP.
+```python
+class LineBizExtractor:
+    def __init__(self): self.mode = None
+    def init(self):
+        if not self._check_opencli(): return False
+        self._init_opencli()
+        return True
+    def eval_js(self, code):
+        r = subprocess.run(['opencli', 'browser', 'linebiz', 'eval', code],
+            capture_output=True, text=True, timeout=30)
+        if r.returncode == 0: return r.stdout.strip()
+        return f"ERR:{r.stderr[:200]}"
+```
+Key behaviors:
+- OpenCLI has no eval count limit — safe for 400+ customer batches
+- If opencli doctor reports Extension: connected, it works
+- No websocket reconnection needed
+- Checkpoint saved after every customer
+
+Full implementation: scripts/old_customer_v3.py
+
+### Checkpoint After Every Customer
+```python
+results = []
+for i, customer in enumerate(customers):
+    result = process_one(customer)
+    results.append(result)
+    with open('/tmp/line_batch_checkpoint.json', 'w') as f:
+        json.dump(results, f, ensure_ascii=False, indent=2)
+```
+
+### Short Search Keyword
+The LINE@ search box is a frontend DOM filter. Full chat names often fail. Use the first 10-15 chars of the distinguishing portion only:
+
+| Full name | Search keyword |
+|-----------|---------------|
+| 訂閱制 點數合約 蓋斯克 x 西北影像 | 西北影像 |
+| HQ商務中心(旭興投資)-Jay(秘書) | 旭興投資 |
+| 點數合約 蓋斯克 x 亞洲藝術中心 | 亞洲藝術 |
+
+### Expected Hit Rate
+Out of 100+ customer names in the Sheet E column, only ~20-30% will be found in the LINE@ chat list. The remaining 70-80% either left the official account or the chat was renamed. These get score=0.
+
+## Two-Pass Classification Strategy (v1.3.0)
+When re-scanning all rows, use a two-pass strategy to minimize expensive LINE@ lookups:
+
+### Pass 1: Classify from Sheet F-column (fast, covers ~80% of rows)
+The F column (訊息) already contains the latest customer reply or activation message from prior runs. Classify directly from F-column content:
+- Activation-only rows (F starts with 「您好~」 / 「感謝XXX長期以來」) → no customer reply → 未回覆
+- Brush-off replies (F contains 「目前穩定」/「目前還行」/「暫時沒有」) → 未回覆
+- Clear purchase signals (F contains 「報價」/「價格」/「想了解」) → 討論中
+- Soft positive (F contains 「我們討論一下」/「評估一下」) → 有興趣
+- Real issues reported (F contains 「客人反應」 + 「不穩」/「卡頓」) → 有興趣
+
+### Pass 2: LINE@ live lookup (for rows with empty/ambiguous F-column)
+Only for rows where F-column is empty OR classification is ambiguous, fetch the latest 20 LINE@ messages via API or UI search.
+
+## Common Pitfalls（含確認過的實際資料範圍）
+1. **G 欄才是狀態，不是 H 欄。** H 欄是「最後聯絡時間」（時間戳格式），G 欄才是「狀態」（未回覆/有興趣/討論中）。查閱時必須明確讀取 G 欄（第 7 欄，index 6）。
+
+2. **確認過的實際資料範圍（2026/6/9）：**
+   - A 欄共 595 行（含 header，資料行 594）
+   - E 欄共 590 行（含 header，資料行 589）
+   - X/x 跳過：133 筆
+   - 實際客戶：456 筆
+   - 狀態分佈（456 實際客戶中）：未回覆：446 / 有興趣：4 / 討論中：4 / 空白：2
+   - 每次讀取前先用 gog sheets get E1:E600 --json 確認實際列數
+   - 【你的個人Gmail】 對這份表沒有讀取權限（403），一定要用 【你的公司Email】
+
+3. Do not use cloud browser for LINE@ session. It will not have the local logged-in cookies. Use OpenCLI (opencli browser linebiz eval).
+4. Do not click/open chats in UI unless necessary. UI clicks may mark messages as read. Prefer API fetch().
+5. E column can be blank or x. Skip these rows.
+6. Chat names are not always exact. Use exact match first, then normalized fuzzy match.
+7. Last five events may include unrelated billing history. Classification should focus on customer messages after the old-customer activation outreach.
+8. Customer soft positive is not 討論中. 「評估一下，有需求再約」 = 有興趣; concrete questions or scheduling = 討論中.
+9. Google writes are external side effects. For a single test requested by 使用者, proceed. For a large batch, confirm scope or process a small sample first.
+10. 近期 25 筆 API limitation. /api/v2/bots/{BOT}/chats 分頁會循環回傳同一批 25 筆聊天室。舊聊天室需要透過 UI 搜尋 chatListSearchInput 才找得到。
+11. Search keyword length. Full E-column names in the search box often return no results. Use only the customer name portion (first 10-15 chars).
+12. Only use OpenCLI (not CDP). 使用者 已指定 opencli browser linebiz eval 為唯一方法。
+13. Scoring vs classification are different modes. 使用者 may ask for the 3-way classification or the 1-10 numeric intent score. Run whichever was asked.
+14. LINEBiz session expiry. LINE Business ID OAuth 2.0 access token 有時效性。若 opencli browser linebiz eval "location.href" 回傳 login 頁面 URL，session 已過期。批次處理前務必執行 pre-flight check。
+15. Google Sheets API rate limit. Individual gog sheets update calls at ~1/sec hit 429 errors after ~60 calls. Add delays between calls or batch multiple rows per range.
+16. Activation must be detected before classifying. The #1 misclassification source: a chat that is entirely technical support with customer saying 「謝謝」 at the end is NOT 「有興趣」 — it's 「未回覆」 because no activation was ever sent.
+17. Shared chats between support and sales. The same chat room handles support tickets AND sales development. A customer can have 20 support messages and never see the activation. The G/H status tracks activation response ONLY, not general chat activity.
+18. UI search timeout. Each UI search navigates the page and requires websocket reconnection. If a search times out (>10s), mark as not found and move on.
+19. Brush-off replies are NOT 有興趣. 「目前穩定」, 「目前還行」, 「都還正常」, 「目前都還算ok」, 「暫時沒有」 — these are polite declinations, not positive signals. Classify as 未回覆.
+20. 外包廠商 are not sales targets. If a chat name or company is recognized as a 外包合作廠商, skip classification entirely and leave as 未回覆.
+
+## Verification Checklist
+- [ ] Google Sheet metadata confirms tab 老客戶開發訊息.
+- [ ] Pre-flight: opencli browser linebiz eval returns chat.line.biz URL (not login page).
+- [ ] Row E chat name is valid and found in LINE@.
+- [ ] Last five LINE@ events are collected (OpenCLI eval, no UI click/read-state changes).
+- [ ] G status is one of 未回覆, 有興趣, 討論中.
+- [ ] H last contact time is converted to Asia/Taipei.
+- [ ] gog sheets update returns expected updated cells.
+- [ ] A follow-up gog sheets get verifies G/H values.
+        </pre>
+    </div>
+
+    <div class="skill-section" id="memory-shipment-tracker">
+        <h2>memory-shipment-tracker</h2>
+        <pre>
+# 記憶體財報追蹤器
+
+## 觸發詞
+- 「記憶體追蹤」
+- 「記憶體財報」
+- 「追蹤記憶體」
+
+## 核心科目（三枚財報信號）
+
+| 英文欄位 | 中文 | 意義 |
+|---------|------|------|
+| Inventories | 存貨 | 備貨積極度 |
+| Prepayments | 預付款項 | 搶料包產能 |
+| CurrentContractLiabilities | 合約負債(流動) | 客戶預訂鎖單 |
+
+## 腳本位置
+~/.hermes/scripts/memory-shipment-tracker.py
+
+## 追蹤標的（目前 6 家）
+
+### 模組廠（4 家）
+- **群聯 8299** — NAND 控制器 + 模組龍頭
+- **威剛 3260** — DRAM/NAND 模組
+- **十銓 4967** — 電競/工控模組
+- **創見 2451** — 工控/車用儲存
+
+### 上游製造廠（2 家）
+- **南亞科 2408** — DRAM 製造
+- **華邦電 2344** — DRAM/Flash 製造
+
+## 排程
+- 每月 1 號 09:00 Asia/Taipei
+- Cron job ID: 72b18593d182
+- 只在有新數據（新一期財報）時才回報，沒變化則靜默
+
+## 數據源
+- FinMind API (free, no auth): TaiwanStockBalanceSheet dataset
+- 資料為 EAV 格式，需轉寬表後比對
+
+## 未來擴充計畫
+
+### Phase 1 — 國際大廠財報
+- **美光 (MU)**：SEC Edgar API
+- **三星 / SK 海力士**：非台股，需用開放資料或 X 搜尋關鍵字交叉驗證
+
+### Phase 2 — 股價走勢對比
+- 用 FinMind 的 TaiwanStockPrice dataset 同時拉股價
+- 圖表輸出存 SVG 或 PNG
+- 可對比：存貨 vs 股價走勢
+
+### Phase 3 — Telegram 一鍵查詢
+- 開發 /memory slash 指令
+- 或 Telegram bot inline query
+- 讓使用者隨時叫出最新數據
+
+## 手動執行
+```bash
+python3 ~/.hermes/scripts/memory-shipment-tracker.py
+```
+
+## 腳本內部邏輯
+1. 逐公司呼叫 FinMind API 拉 TaiwanStockBalanceSheet
+2. EAV 轉為 {date: {field: value}} 格式
+3. 取最新一期數據，同時計算環比變化率
+4. 與快取檔 .memory_tracker_cache.json 比對
+5. 有更新 → 輸出報告 | 無更新 → __SILENT__
+
+## 注意事項
+- FinMind API 無 rate limit 但不宜太頻繁（每月一次足矣）
+- 台股財報公布時程：Q1(4月底) Q2(8月中) Q3(11月中) Q4(隔年3月底)
+- 腳本會自動跳過無資料欄位（如創見無合約負債、預付款）
+- 上游廠的合約負債通常為 0（商業模式不同）
+        </pre>
+    </div>
+
+    <a href="#" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ 回到頂部</a>
+
+    <script>
+        // 為每個 skill 區塊的標題加上「複製」按鈕，點擊複製該 skill 的 pre 內容
+        document.querySelectorAll('.skill-section').forEach(function(section) {
+            var h2 = section.querySelector('h2');
+            var pre = section.querySelector('pre');
+            if (!h2 || !pre) return;
+            var btn = document.createElement('button');
+            btn.className = 'copy-btn';
+            btn.textContent = '📋 複製';
+            btn.addEventListener('click', function() {
+                var text = pre.innerText;
+                function done() {
+                    btn.textContent = '✅ 已複製';
+                    btn.classList.add('copied');
+                    setTimeout(function() {
+                        btn.textContent = '📋 複製';
+                        btn.classList.remove('copied');
+                    }, 1500);
+                }
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(done).catch(fallback);
+                } else {
+                    fallback();
+                }
+                function fallback() {
+                    var ta = document.createElement('textarea');
+                    ta.value = text;
+                    ta.style.position = 'fixed';
+                    ta.style.opacity = '0';
+                    document.body.appendChild(ta);
+                    ta.select();
+                    try { document.execCommand('copy'); done(); } catch (e) {}
+                    document.body.removeChild(ta);
+                }
+            });
+            h2.appendChild(btn);
+        });
+    </script>
+
+</body>
+</html>
